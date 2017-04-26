@@ -114,7 +114,7 @@
 
                 <div class="modal-header" style="padding:35px 50px;">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <img src="images/times/escudo.png">
+                    <img src="images/c1.png">
                     <h4><span class="glyphicon"></span> Editar Noticia</h4>
                 </div>
 
@@ -146,6 +146,9 @@
                         <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-floppy-saved"></span>SALVAR</button>
                     </form>
                 </div>
+              </div>
+            </div>
+          </div>
           
           <!-- Modal noticia2-->
           <div class="modal fade" id="news2" role="dialog">
@@ -156,7 +159,7 @@
 
                 <div class="modal-header" style="padding:35px 50px;">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <img src="images/times/escudo.png">
+                    <img src="images/c2.png">
                     <h4><span class="glyphicon"></span> Editar Noticia</h4>
                 </div>
 
@@ -188,6 +191,10 @@
                         <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-floppy-saved"></span>SALVAR</button>
                     </form>
                 </div>
+                </div>
+              </div>
+            </div>
+    
 
           <!-- Modal noticia3-->
           <div class="modal fade" id="news3" role="dialog">
@@ -198,7 +205,7 @@
 
                 <div class="modal-header" style="padding:35px 50px;">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <img src="images/times/escudo.png">
+                    <img src="images/c3.png">
                     <h4><span class="glyphicon"></span> Editar Noticia</h4>
                 </div>
 
@@ -230,6 +237,10 @@
                         <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-floppy-saved"></span>SALVAR</button>
                     </form>
                 </div>
+                </div>
+              </div>
+            </div>
+
         <!-- Modal footer-->
           <div class="modal fade" id="footer" role="dialog">
             <div class="modal-dialog">

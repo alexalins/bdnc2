@@ -6,6 +6,9 @@ $(document).ready(function(){
     $("#planoFundo").click(function(){
       $("#formBackground").modal();
     });
+    $("#planoFundo").click(function(){
+      $("#footer").modal();
+    });
 });
 
 $('.modal').on('hidden.bs.modal', function () {

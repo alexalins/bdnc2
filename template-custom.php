@@ -123,8 +123,8 @@
                       </div>
                     </div> <!-- /.page-header -->
 
-                    <div class="row" id="news1">
-                       <div class="col-md-12 grid1 edit">
+                    <div class="row">
+                       <div id="new1" class="col-md-12 grid1 edit">
                           <div class="edit-content">
                             <div class="icone-news">
                               <img src="images/c1.png" alt=""/>

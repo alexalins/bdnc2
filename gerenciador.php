@@ -119,15 +119,15 @@
                 </div>
 
                 <div class="modal-body" style="padding:40px 50px;">
-                    <form enctype="multipart/form-data" method="post"  action="update/updateEscudo.php">
+                    <form method="post"  action="update/updateNews1.php">
                       <div class="form-group">
-                        <label for="corNoticia">Cor</label>
-                        <input type="color"  name="background">
+                        <label for="corNoticia">Cor de fundo</label>
+                        <input type="color" class="form-control"  name="background">
 
                         <label for="title">Titulo</label>
                         <input type="text" class="form-control" name="title" placeholder="Nome do titulo" required>
                         <label for="corTitulo">Cor do titulo</label>
-                        <input type="color"  name="titleColor">
+                        <input type="color" class="form-control" name="titleColor">
                         <label for="posicaoTitulo">Posição do titulo</label>
                         <select class="form-control" name="titleAling" id="posicao" required>
                             <option value="">Escolha a posição</option>

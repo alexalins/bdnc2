@@ -9,6 +9,9 @@ $(document).ready(function(){
     $("#planoFundo").click(function(){
       $("#footer").modal();
     });
+    $("#new1").click(function(){
+      $("#news1").modal();
+    });
 });
 
 $('.modal').on('hidden.bs.modal', function () {

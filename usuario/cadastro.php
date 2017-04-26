@@ -72,6 +72,12 @@
                               "escudo" => "arenam1lg4au.png",
                               "clube" => array("nome"=>"myClub", "color"=>"white"),
                               "background" => "myClub.png",
+                              "ultimoJogo" => array("header" => array("background"=>"green", "color"=>"white", "text-aling"=>"center"), "body" => array("background"=>"black", "color"=>"white", "man"=>"MAN", "placarMan"=>"", "vis"=>"VIS", "placarVis"=>"", "data"=>"01/01/2017", "hora"=>"12:00")),
+                              "proximoJogo" => array("header" => array("background"=>"green", "color"=>"white", "text-aling"=>"center"), "body" => array("background"=>"black", "color"=>"white", "man"=>"MAN", "placarMan"=>"", "vis"=>"VIS", "placarVis"=>"", "data"=>"01/01/2017", "hora"=>"12:00")),
+                              "news1" => array("background"=>"black", "title"=>array("color"=>"red", "text-aling"=>"center"), "color"=>"white"),
+                              "news2" => array("background"=>"black", "title"=>array("color"=>"red", "text-aling"=>"center"), "color"=>"white"),
+                              "news3" => array("background"=>"black", "title"=>array("color"=>"red", "text-aling"=>"center"), "color"=>"white"),
+                              "footer" => array("direitos"=>"M1l G4AU", "color"=>"black", "contatos" => array("facebook"=>"#", "twitter"=>"#","instagram"=>"#", "linkedin"=>"#", "rss"=>"#")), 
                             );
 
                             $collection->insert($document);

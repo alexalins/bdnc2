@@ -43,7 +43,7 @@
                           <div class="col-md-12">
                               <div class="templatemo_logo">
                                   <img src="#" id="logo" class="logo_arena" >
-                                  <h1 class="nomeClube" id="nomeClube"></h1>
+                                  <h1 class="nomeClube member-name" id="nomeClube"></h1>
                               </div> <!-- /.logo -->
                           </div> <!-- /.col-md-12 -->
                       </div>

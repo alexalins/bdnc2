@@ -53,7 +53,7 @@
                                 }        
                                  else
                                     {
-                                      //createDocumento();  
+                                      createDocumento();  
                                       ?>                              
                                       <div class="alert alert-success">
                                                     <strong>Success!</strong> cadastro realizado com sucesso.

@@ -105,7 +105,7 @@
             </div><!--/modal-dialog-->
           </div> <!--/modal-->
 
-          <!-- Modal noticia-->
+          <!-- Modal noticia1-->
           <div class="modal fade" id="news1" role="dialog">
             <div class="modal-dialog">
             
@@ -146,7 +146,90 @@
                         <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-floppy-saved"></span>SALVAR</button>
                     </form>
                 </div>
-        
+          
+          <!-- Modal noticia2-->
+          <div class="modal fade" id="news2" role="dialog">
+            <div class="modal-dialog">
+            
+              <!-- Modal content-->
+              <div class="modal-content">
+
+                <div class="modal-header" style="padding:35px 50px;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <img src="images/times/escudo.png">
+                    <h4><span class="glyphicon"></span> Editar Noticia</h4>
+                </div>
+
+                <div class="modal-body" style="padding:40px 50px;">
+                    <form method="post"  action="update/updateNews2.php">
+                      <div class="form-group">
+                        <label for="corNoticia">Cor de fundo</label>
+                        <input type="color" class="form-control"  name="background">
+
+                        <label for="title">Titulo</label>
+                        <input type="text" class="form-control" name="title" placeholder="Nome do titulo" required>
+                        <label for="corTitulo">Cor do titulo</label>
+                        <input type="color" class="form-control" name="titleColor">
+                        <label for="posicaoTitulo">Posição do titulo</label>
+                        <select class="form-control" name="titleAling" id="posicao" required>
+                            <option value="">Escolha a posição</option>
+                            <option value="center">Centro</option>
+                            <option value="right">Direita</option>
+                            <option value="left">Esquerda</option>
+                            <option value="justify">Justificado</option>
+                        </select>
+                        
+                        <label for="noticia">Noticia</label>
+                        <textarea class="form-control" rows="5" name="noticia" id="noticia"></textarea>
+                      </div>
+                      <!--<div class="checkbox">
+                        <label><input type="checkbox" value="" checked>Remember me</label>
+                      </div>-->
+                        <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-floppy-saved"></span>SALVAR</button>
+                    </form>
+                </div>
+
+          <!-- Modal noticia3-->
+          <div class="modal fade" id="news3" role="dialog">
+            <div class="modal-dialog">
+            
+              <!-- Modal content-->
+              <div class="modal-content">
+
+                <div class="modal-header" style="padding:35px 50px;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <img src="images/times/escudo.png">
+                    <h4><span class="glyphicon"></span> Editar Noticia</h4>
+                </div>
+
+                <div class="modal-body" style="padding:40px 50px;">
+                    <form method="post"  action="update/updateNews3.php">
+                      <div class="form-group">
+                        <label for="corNoticia">Cor de fundo</label>
+                        <input type="color" class="form-control"  name="background">
+
+                        <label for="title">Titulo</label>
+                        <input type="text" class="form-control" name="title" placeholder="Nome do titulo" required>
+                        <label for="corTitulo">Cor do titulo</label>
+                        <input type="color" class="form-control" name="titleColor">
+                        <label for="posicaoTitulo">Posição do titulo</label>
+                        <select class="form-control" name="titleAling" id="posicao" required>
+                            <option value="">Escolha a posição</option>
+                            <option value="center">Centro</option>
+                            <option value="right">Direita</option>
+                            <option value="left">Esquerda</option>
+                            <option value="justify">Justificado</option>
+                        </select>
+                        
+                        <label for="noticia">Noticia</label>
+                        <textarea class="form-control" rows="5" name="noticia" id="noticia"></textarea>
+                      </div>
+                      <!--<div class="checkbox">
+                        <label><input type="checkbox" value="" checked>Remember me</label>
+                      </div>-->
+                        <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-floppy-saved"></span>SALVAR</button>
+                    </form>
+                </div>
         <!-- Modal footer-->
           <div class="modal fade" id="footer" role="dialog">
             <div class="modal-dialog">

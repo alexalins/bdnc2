@@ -12,6 +12,12 @@ $(document).ready(function(){
     $("#new1").click(function(){
       $("#news1").modal();
     });
+    $("#new2").click(function(){
+      $("#news2").modal();
+    });
+    $("#new3").click(function(){
+      $("#news3").modal();
+    });
 });
 
 $('.modal').on('hidden.bs.modal', function () {

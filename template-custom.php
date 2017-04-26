@@ -135,7 +135,7 @@
                           </div>
                        </div>
 
-                       <div class="col-md-12 grid1 edit">
+                       <div id="new2" class="col-md-12 grid1 edit">
                           <div class="edit-content">
                              <div class="icone-news">
                               <img src="images/c2.png" alt=""/>
@@ -146,7 +146,7 @@
                           </div>
                        </div>
 
-                       <div class="col-md-12 grid1 edit">
+                       <div id="new3" class="col-md-12 grid1 edit">
                           <div class="edit-content">
                              <div class="icone-news">
                               <img src="images/c3.png" alt=""/>

@@ -50,7 +50,7 @@
                     </div> <!-- /.row -->
 
                     <div id="jogos" class="row services">
-                        <div class="col-md-6 col-sm-6">
+                        <div class="col-md-6 col-sm-6" id="ultimoJogo">
 
                             <div class="service edit">
                               <div class="edit-content">

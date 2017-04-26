@@ -18,6 +18,9 @@ $(document).ready(function(){
     $("#new3").click(function(){
       $("#news3").modal();
     });
+    $("#ultimoJogo").click(function(){
+      $("#modalUltimoJogo").modal();
+    });
 });
 
 $('.modal').on('hidden.bs.modal', function () {

@@ -105,6 +105,56 @@
             </div><!--/modal-dialog-->
           </div> <!--/modal-->
 
+          <!-- Modal ultimo jogo-->
+          <div class="modal fade" id="modalUltimoJogo" role="dialog">
+            <div class="modal-dialog">
+            
+              <!-- Modal content-->
+              <div class="modal-content">
+
+                <div class="modal-header" style="padding:35px 50px;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <img src="images/times/escudo.png">
+                    <h4><span class="glyphicon"></span> Editar Ultimo Jogo</h4>
+                </div>
+
+                <div class="modal-body" style="padding:40px 50px;">
+                    <form enctype="multipart/form-data" method="post"  action="update/updateUltimoJogo.php">
+                      <div class="form-group">
+                        <label for="header">Cor</label>
+                        <input type="color" class="form-control"  name="backgroundHeader">
+                        <label for="headerNome">Cor do nome</label>
+                        <input type="color" class="form-control"  name="headerColor">
+                      </div>
+                      <div class="form-group">
+                        <label for="background">Cor</label>
+                        <input type="color"  name="backgroundColor">
+
+                        <label for="man">Mandante</label>
+                        <input type="text" class="form-control" name="man" placeholder="Nome do time" required>
+                        <input type="color"  name="nomeClubeColor">
+
+                        <label for="vis">Visitante</label>
+                        <input type="text" class="form-control" name="vis" placeholder="Nome do time" required>
+
+                        <label for="dataHora">Data e hora</label>
+                        <input type="datetime-local" class="form-control" name="dataHora" value="2014-11-16T15:25">
+
+                        <label for="textColor">Cor do texto</label>
+                        <input type="color"  name="textColor">
+
+                      </div>
+                      <!--<div class="checkbox">
+                        <label><input type="checkbox" value="" checked>Remember me</label>
+                      </div>-->
+                        <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-floppy-saved"></span>SALVAR</button>
+                    </form>
+                </div>
+
+              </div><!--/modal-content-->
+            </div><!--/modal-dialog-->
+          </div> <!--/modal-->
+
           <!-- Modal noticia1-->
           <div class="modal fade" id="news1" role="dialog">
             <div class="modal-dialog">

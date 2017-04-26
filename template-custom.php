@@ -123,7 +123,7 @@
                       </div>
                     </div> <!-- /.page-header -->
 
-                    <div class="row">
+                    <div class="row" id="news1">
                        <div class="col-md-12 grid1 edit">
                           <div class="edit-content">
                             <div class="icone-news">

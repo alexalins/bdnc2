@@ -104,6 +104,48 @@
               </div><!--/modal-content-->
             </div><!--/modal-dialog-->
           </div> <!--/modal-->
+
+          <!-- Modal noticia-->
+          <div class="modal fade" id="news1" role="dialog">
+            <div class="modal-dialog">
+            
+              <!-- Modal content-->
+              <div class="modal-content">
+
+                <div class="modal-header" style="padding:35px 50px;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <img src="images/times/escudo.png">
+                    <h4><span class="glyphicon"></span> Editar Noticia</h4>
+                </div>
+
+                <div class="modal-body" style="padding:40px 50px;">
+                    <form enctype="multipart/form-data" method="post"  action="update/updateEscudo.php">
+                      <div class="form-group">
+                        <label for="corNoticia">Cor</label>
+                        <input type="color"  name="background">
+
+                        <label for="title">Titulo</label>
+                        <input type="text" class="form-control" name="title" placeholder="Nome do titulo" required>
+                        <label for="corTitulo">Cor do titulo</label>
+                        <input type="color"  name="titleColor">
+                        <label for="posicaoTitulo">Posição do titulo</label>
+                        <select class="form-control" name="titleAling" id="posicao" required>
+                            <option value="">Escolha a posição</option>
+                            <option value="center">Centro</option>
+                            <option value="right">Direita</option>
+                            <option value="left">Esquerda</option>
+                            <option value="justify">Justificado</option>
+                        </select>
+                        
+                        <label for="noticia">Noticia</label>
+                        <textarea class="form-control" rows="5" name="noticia" id="noticia"></textarea>
+                      </div>
+                      <!--<div class="checkbox">
+                        <label><input type="checkbox" value="" checked>Remember me</label>
+                      </div>-->
+                        <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-floppy-saved"></span>SALVAR</button>
+                    </form>
+                </div>
         
         <!-- Modal footer-->
           <div class="modal fade" id="footer" role="dialog">
@@ -124,7 +166,7 @@
                         <input type="color"  name="nomeFooterColor">
                         <label for="copyright">Copyright</label>
                         <input type="text" class="form-control" name="copyright" placeholder="Nome do Copyright" required>
-                        <label for="twitter">Facebook</label>
+                        <label for="facebook">Facebook</label>
                         <input type="text" class="form-control" name="facebook" placeholder="Nome do Facebook" required>
                         <label for="twitter">Twitter</label>
                         <input type="text" class="form-control" name="twitter" placeholder="Nome do Twitter" required>

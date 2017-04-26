@@ -121,8 +121,11 @@
                 <div class="modal-body" style="padding:40px 50px;">
                     <form enctype="multipart/form-data" method="post"  action="update/updateEscudo.php">
                       <div class="form-group">
+                        <input type="color"  name="nomeFooterColor">
                         <label for="copyright">Copyright</label>
                         <input type="text" class="form-control" name="copyright" placeholder="Nome do Copyright" required>
+                        <label for="twitter">Facebook</label>
+                        <input type="text" class="form-control" name="facebook" placeholder="Nome do Facebook" required>
                         <label for="twitter">Twitter</label>
                         <input type="text" class="form-control" name="twitter" placeholder="Nome do Twitter" required>
                         <label for="linkedin">Linkedin</label>
@@ -131,7 +134,6 @@
                         <input type="text" class="form-control" name="instagram" placeholder="Nome do instagram" required>
                         <label for="rss">Rss</label>
                         <input type="text" class="form-control" name="rss" placeholder="Nome do rss" required>
-                        <input type="color"  name="nomeFooterColor">
                       </div>
                       <!--<div class="checkbox">
                         <label><input type="checkbox" value="" checked>Remember me</label>

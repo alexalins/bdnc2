@@ -10,50 +10,28 @@
   $logado = $_SESSION['email'];
 
   include("../conexaoMongo.php");
-  $nomeClube = $_POST['nomeClube'];
-  $nomeClubeColor =$_POST["nomeClubeColor"];
+  $headerBackground = $_POST['headerBackground'];
+  $headerColor = $_POST['headerColor'];
+  $headerTextAling = $_POST['headerTextAling'];
+  $bodyBackground = $_POST['bodyBackground'];
+  $BodyColor = $_POST['bodyColor'];
+  $man = $_POST['man'];
+  $placarMan = $_POST['placarMan'];
+  $vis = $_POST['vis'];
+  $placarVis = $_POST['placarVis'];
 
-  $escudo = $_FILES['escudo']['name'];
+  $collection->update(array("_id"=>$logado),
+  	array('$set'=>array()));
 
-  //imagem não alterada
-  if($escudo == ""){
-    $collection->update(array("_id"=>$logado),
-      array('$set'=>array("clube.nome"=>$nomeClube, "clube.color"=>$nomeClubeColor)));
-      header('location:../gerenciador.php');
+  echo "Documento atualizadocom sucesso";
+
+  $cursor = $collection->find(array("_id"=>$logado));
+  foreach ($cursor as $document) {
+    echo $document["_id"];
+    echo $document["escudo"];
+    echo $document["clube"]["nome"];
+    echo $document["clube"]["color"];
   }
-
-  //usuario decidiu mudar a imagem
-  else{
-      $ext = pathinfo($escudo, PATHINFO_EXTENSION);
-
-      $escudo = "escudo.".$ext;
-      //diretorio relativo para chegar no arquivo
-      $caminhoArquivoCSS = "usuarios/".$logado."/".$escudo;
-
-      //destino de copia
-    	$destino = '../images/usuarios/'.$_SESSION['email'].'/'.$escudo;
-    	 
-    	$arquivo_tmp = $_FILES['escudo']['tmp_name'];
-    	 
-    	move_uploaded_file( $arquivo_tmp, $destino  );
-
-
-      //atualizar no mongo as informações do formulario
-
-        // insert 
-
-        $collection->update(array("_id"=>$logado),
-        	array('$set'=>array("escudo"=>$caminhoArquivoCSS, "clube.nome"=>$nomeClube, "clube.color"=>$nomeClubeColor)));
-
-        echo "Documento atualizadocom sucesso";
-
-        $cursor = $collection->find(array("_id"=>$logado));
-        foreach ($cursor as $document) {
-          echo $document["_id"];
-          echo $document["escudo"];
-          echo $document["clube"]["nome"];
-          echo $document["clube"]["color"];
-        }
-        header('location:../gerenciador.php');
-  }
+  header('location:../gerenciador.php');
+  
 ?>

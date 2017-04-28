@@ -8,13 +8,17 @@
     <link href="css/templatemo_style.css" rel="stylesheet">
     <link href="css/login.css" rel="stylesheet">
 	<title>Login</title>
+	<style type="text/css">
+
+	</style>
 </head>
 <body>
 	<div class="bg-image"></div>
 	<div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12" >
-			<form role="form" action="usuario/validar_usuario.php" method="post">
+			<div id="login">
+				<form role="form" action="usuario/validar_usuario.php" method="post">
 				<div class="login-form">
 					<div class="form-group">	 
 						<label for="exampleInputEmail1">
@@ -37,6 +41,7 @@
 					</div>
 				</div>
 			</form>
+			</div>
 		</div>
 	</div>
 </div>

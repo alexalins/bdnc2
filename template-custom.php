@@ -82,7 +82,7 @@
                             </div> <!-- /.service --> 
                         </div> <!-- /.col-md-6 -->
 
-                        <div class="col-md-6 col-sm-6">
+                        <div class="col-md-6 col-sm-6" id="proximoJogo">
 
                             <div class="service edit">
                               <div class="edit-content">
@@ -116,49 +116,45 @@
      
                     </div> <!-- /.row services-->  
                     
-
+                    <!--elencos-->
+                    <div class="noticias row">
                     <div id="news" class="page-header edit">
                       <div class="edit-content">
                           <h2 class="page-title">Noticias</h2>
                       </div>
                     </div> <!-- /.page-header -->
 
-                    <div class="row">
-                       <div id="new1" class="col-md-12 grid1 edit">
-                          <div class="edit-content">
-                            <div class="icone-news">
-                              <img src="images/c1.png" alt=""/>
+                    <div id="news1" class="col-md-12 grid1 edit noticia">
+                      <div class="edit-content">
+                        <div class="icone-news">
+                            <img src="images/c1.png" alt=""/>
+                        </div>
+                        <h3 class="member-name"></h3>
+                        <p></p>
+                      </div>
+                    </div>
+                                        
+                    <div id="news2" class="col-md-12 grid1 edit noticia">
+                        <div class="edit-content">
+                           <div class="icone-news">
+                                <img src="images/c2.png" alt=""/>
                             </div>
-                            <h3>Champion's League</h3>
-                            <p>Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus 
-                             Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker.</p>
-                          </div>
-                       </div>
+                            <h3 class="member-name"></h3>
+                            <p></p>
+                        </div>
+                    </div>    
 
-                       <div id="new2" class="col-md-12 grid1 edit">
-                          <div class="edit-content">
-                             <div class="icone-news">
-                              <img src="images/c2.png" alt=""/>
-                             </div>
-                             <h3>Women's Cup</h3>
-                             <p>Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus 
-                             Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker.</p>
-                          </div>
-                       </div>
+                    <div id="news3" class="col-md-12 grid1 edit noticia">
+                      <div class="edit-content">
+                        <div class="icone-news">
+                          <img src="images/c3.png" alt=""/>
+                        </div>
+                        <h3 class="member-name"></h3>
+                        <p></p>
+                      </div>
+                    </div>
+                  </div>
 
-                       <div id="new3" class="col-md-12 grid1 edit">
-                          <div class="edit-content">
-                             <div class="icone-news">
-                              <img src="images/c3.png" alt=""/>
-                             </div>
-                             <h3>Final Tournment</h3>
-                             <p>Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus 
-                             Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker.</p>
-                         </div>
-                       </div>
-                   </div>
-                   
-                     
 
                     <!--elenco-->
                     <div id="elenco" class="page-header edit">
@@ -168,154 +164,142 @@
                     </div> <!-- /.page-header -->
                     
                     <div class="row">
-                      <div class="col-md-2 col-sm-3 col-xs-4">
+                      <div class="col-md-2 col-sm-3 col-xs-4" id="jogador1">
                         <div class="polaroid edit">
                           <div class="edit-content">
-                              <img src="images/times/goleiro.jpeg" alt="Norway">
-                              <p>
-                                Goleiro
-                              </p>
+                              <img id="player1" class="img-responsive" src="#">
+                              <p id="p1Nome"><span id="p1Numero" class="numero glyphicon"></span></p>
+                              <p id="posicaoP1"></p>
                           </div>
                         </div>
                       </div>
 
-                      <div class="col-md-2 col-sm-3 col-xs-4">
+                      <div class="col-md-2 col-sm-3 col-xs-4" id="jogador2">
                         <div class="polaroid edit">
                           <div class="edit-content">
-                              <img src="images/times/messi.jpg" alt="Norway">
-                              <p>
-                                Messi
-                              </p>
+                              <img id="player2" class="img-responsive" src="#">
+                              <p id="p2Nome"><span id="p2Numero" class="numero glyphicon"></span></p>
+                              <p id="posicaoP2"></p>
                           </div>
                         </div>
                       </div>
 
-                      <div class="col-md-2 col-sm-3 col-xs-4">
+                      <div class="col-md-2 col-sm-3 col-xs-4" id="jogador3">
                         <div class="polaroid edit">
                           <div class="edit-content">
-                              <img src="images/times/messi.jpg" alt="Norway">
-                              <p>
-                                Messi
-                              </p>
+                              <img id="player3" class="img-responsive" src="#">
+                              <p id="p3Nome"><span id="p3Numero" class="numero glyphicon"></span></p>
+                              <p id="posicaoP3"></p>
                           </div>
                         </div>
                       </div>
 
-                      <div class="col-md-2 col-sm-3 col-xs-4">
+                      <div class="col-md-2 col-sm-3 col-xs-4" id="jogador4">
                         <div class="polaroid edit">
                           <div class="edit-content">
-                              <img src="images/times/messi.jpg" alt="Norway">
-                              <p>
-                                Messi
-                              </p>
+                              <img id="player4" class="img-responsive" src="#">
+                              <p id="p4Nome"><span id="p4Numero" class="numero glyphicon"></span></p>
+                              <p id="posicaoP4"></p>
                           </div>
                         </div>
                       </div>
 
-                      <div class="col-md-2 col-sm-3 col-xs-4">
+                      <div class="col-md-2 col-sm-3 col-xs-4" id="jogador5">
                         <div class="polaroid edit">
                           <div class="edit-content">
-                              <img src="images/times/messi.jpg" alt="Norway">
-                              <p>
-                                Messi
-                              </p>
+                              <img id="player5" class="img-responsive" src="#">
+                              <p id="p5Nome"><span id="p5Numero" class="numero glyphicon"></span></p>
+                              <p id="posicaoP5"></p>
                           </div>
                         </div>
                       </div>
 
-                      <div class="col-md-2 col-sm-3 col-xs-4">
+                      <div class="col-md-2 col-sm-3 col-xs-4" id="jogador6">
                         <div class="polaroid edit">
                           <div class="edit-content">
-                              <img src="images/times/messi.jpg" alt="Norway">
-                              <p>
-                                Messi
-                              </p>
+                              <img id="player6" class="img-responsive" src="#">
+                              <p id="p6Nome"><span id="p6Numero" class="numero glyphicon"></span></p>
+                              <p id="posicaoP6"></p>
                           </div>
                         </div>
                       </div>
 
-                      <div class="col-md-2 col-sm-3 col-xs-4">
+                      <div class="col-md-2 col-sm-3 col-xs-4" id="jogador7">
                         <div class="polaroid edit">
                           <div class="edit-content">
-                              <img src="images/times/messi.jpg" alt="Norway">
-                              <p>
-                                Messi
-                              </p>
+                              <img id="player7" class="img-responsive" src="#">
+                              <p id="p7Nome"><span id="p7Numero" class="numero glyphicon"></span></p>
+                              <p id="posicaoP7"></p>
                           </div>
                         </div>
                       </div>
 
-                      <div class="col-md-2 col-sm-3 col-xs-4">
+                      <div class="col-md-2 col-sm-3 col-xs-4"  id="jogador8">
                         <div class="polaroid edit">
                           <div class="edit-content">
-                              <img src="images/times/messi.jpg" alt="Norway">
-                              <p>
-                                Messi
-                              </p>
+                              <img id="player8" class="img-responsive" src="#">
+                              <p id="p8Nome"><span id="p8Numero" class="numero glyphicon"></span></p>
+                              <p id="posicaoP8"></p>
                           </div>
                         </div>
                       </div>
 
-                      <div class="col-md-2 col-sm-3 col-xs-4">
+                      <div class="col-md-2 col-sm-3 col-xs-4"  id="jogador9">
                         <div class="polaroid edit">
                           <div class="edit-content">
-                              <img src="images/times/messi.jpg" alt="Norway">
-                              <p>
-                                Messi
-                              </p>
+                              <img id="player9" class="img-responsive" src="#">
+                              <p id="p9Nome"><span id="p9Numero" class="numero glyphicon"></span></p>
+                              <p id="posicaoP9"></p>
                           </div>
                         </div>
                       </div>
 
-                      <div class="col-md-2 col-sm-3 col-xs-4">
+                      <div class="col-md-2 col-sm-3 col-xs-4"  id="jogador10">
                         <div class="polaroid edit">
                           <div class="edit-content">
-                              <img src="images/times/messi.jpg" alt="Norway">
-                              <p>
-                                Messi
-                              </p>
+                              <img id="player10" class="img-responsive" src="#">
+                              <p id="p10Nome"><span id="p10Numero" class="numero glyphicon"></span></p>
+                              <p id="posicaoP10"></p>
                           </div>
                         </div>
                       </div>
 
-                      <div class="col-md-2 col-sm-3 col-xs-4">
+                      <div class="col-md-2 col-sm-3 col-xs-4" id="jogador11">
                         <div class="polaroid edit">
                           <div class="edit-content">
-                              <img src="images/times/messi.jpg" alt="Norway">
-                              <p>
-                                Messi
-                              </p>
+                              <img id="player11" class="img-responsive" src="#">
+                              <p id="p11Nome"><span id="p11Numero" class="numero glyphicon"></span></p>
+                              <p id="posicaoP11"></p>
                           </div>
                         </div>
                       </div>
 
-                      <div class="col-md-2 col-sm-3 col-xs-4">
+                      <div class="col-md-2 col-sm-3 col-xs-4"  id="jogador12">
                         <div class="polaroid edit">
                           <div class="edit-content">
-                              <img src="images/times/tecnico.jpg" alt="Norway">
-                              <p>
-                                Tecnico
-                              </p>
+                              <img id="player12" class="img-responsive" src="#">
+                              <p id="p12Nome"></p>
+                              <p id="posicaoP12"></p>
                           </div>
                         </div>
                       </div>
                   </div>
                
 
-                    <div class="site-footer edit">
+                    <div id="site-footer" class="site-footer edit">
                         <div class="row">
                             <div class="col-md-6">
-                                <p class="copyright-text">Copyright &copy; ARENA M1L G4AU 
+                                <p class="copyright-text">Copyright &copy; <span id="copyright"></span>
                                 </p>
                             </div>
                             <div class="col-md-6">
                                 <div class="social-icons-footer">
                                     <ul>
-                                        <li><a target="_parent" href="https://www.facebook.com/Arena-M1lg4au-1083495895100623/?ref=ts&fref=ts" class="fa fa-facebook"></a></li>
-                                        <li><a href="#" class="fa fa-twitter"></a></li>
-                                        <li><a href="#" class="fa fa-linkedin"></a></li>
-                                        <li><a href="#" class="fa fa-instagram"></a></li>
-                                        <li><a href="#" class="fa fa-rss"></a></li>
+                                        <li><a id="facebook" href="#" class="fa fa-facebook"></a></li>
+                                        <li><a id="twitter" href="#" class="fa fa-twitter"></a></li>
+                                        <li><a id="linkedin" href="#" class="fa fa-linkedin"></a></li>
+                                        <li><a id="instagram" href="#" class="fa fa-instagram"></a></li>
+                                        <li><a id="rss" href="#" class="fa fa-rss"></a></li>
                                     </ul>
                                 </div>
                             </div>

@@ -123,6 +123,15 @@ select::-ms-expand { display: none; }
 .portfolio-item .overlay a { position: absolute; width: 40px; height: 40px; background-color: #a71e2b; text-align: center; line-height: 40px; color: white; top: 50%; left: 50%; margin: -20px 0 0 -20px; }
 .portfolio-item:hover .overlay { opacity: 1; visibility: visible; }
 
+.login-form {
+  padding: 40px 30px;
+  float: right;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  margin: 0 auto;
+  position: relative;
+}
 
 .logo_arena{
     width: 150px;

@@ -19,9 +19,11 @@
   $placarMan = $_POST['placarMan'];
   $vis = $_POST['vis'];
   $placarVis = $_POST['placarVis'];
+  $data = $_POST["data"];
+  
 
   $collection->update(array("_id"=>$logado),
-  	array('$set'=>array()));
+  	array('$set'=>array("")));
 
   echo "Documento atualizadocom sucesso";
 

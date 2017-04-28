@@ -70,14 +70,44 @@
                             $document = array( 
                               "_id" =>$email, 
                               "escudo" => "arenam1lg4au.png",
-                              "clube" => array("nome"=>"myClub", "color"=>"white"),
+                              "clube" => array("nome"=>"myClub", "color"=>"#FFFFFF"),
                               "background" => "myClub.png",
-                              "ultimoJogo" => array("header" => array("background"=>"green", "color"=>"white", "text-aling"=>"center"), "body" => array("background"=>"black", "color"=>"white", "man"=>"MAN", "placarMan"=>"", "vis"=>"VIS", "placarVis"=>"", "data"=>"01/01/2017", "hora"=>"12:00")),
-                              "proximoJogo" => array("header" => array("background"=>"green", "color"=>"white", "text-aling"=>"center"), "body" => array("background"=>"black", "color"=>"white", "man"=>"MAN", "placarMan"=>"", "vis"=>"VIS", "placarVis"=>"", "data"=>"01/01/2017", "hora"=>"12:00")),
-                              "news1" => array("background"=>"black", "title"=>array("color"=>"red", "text-aling"=>"center"), "color"=>"white"),
-                              "news2" => array("background"=>"black", "title"=>array("color"=>"red", "text-aling"=>"center"), "color"=>"white"),
-                              "news3" => array("background"=>"black", "title"=>array("color"=>"red", "text-aling"=>"center"), "color"=>"white"),
-                              "footer" => array("direitos"=>"M1l G4AU", "color"=>"black", "contatos" => array("facebook"=>"#", "twitter"=>"#","instagram"=>"#", "linkedin"=>"#", "rss"=>"#")), 
+                              "jogos"=>array(
+                                    "ultimoJogo" => array(
+                                                "header" => array("background"=>"green", "color"=>"white", "text-aling"=>"center"), 
+                                                "body" => array("background"=>"rgba(0, 0, 0, 0.7)", "color"=>"black", "man"=>"MAN", "placarMan"=>"", "vis"=>"VIS", "placarVis"=>"", "data"=>"")),
+                                    "proximoJogo" => array(
+                                                  "header" => array("background"=>"green", "color"=>"white", "text-aling"=>"center"), 
+                                                  "body" => array("background"=>"black", "color"=>"white", "man"=>"MAN", "vis"=>"VIS", "data"=>""))
+                              ),
+                              "news"=>array("background"=>"rgba(0, 0, 0, 0.7)", "color"=>"#FFFFFF", "titleColor"=>"#FFFFFF",
+                                    "news1" => array(
+                                            "noticia"=>"Noticia", 
+                                            "title"=>array("texto"=>"Titulo", "text-aling"=>"center")),
+                                    "news2" => array(
+                                            "noticia"=>"Noticia",
+                                            "title"=>array("texto"=>"Titulo", "text-aling"=>"center")),
+                                    "news3" => array(
+                                            "noticia"=>"Noticia",
+                                            "title"=>array("texto"=>"Titulo", "text-aling"=>"center"))
+                              ),
+                              "jogadores" => array("textColor"=>"#FFFFFF",
+                                         "player1"=>array("imagem"=>"player.jpg", "nome"=>"player", "numero"=>"1", "posicao"=>"GOL"),
+                                         "player2"=>array("imagem"=>"player.jpg", "nome"=>"Player", "numero"=>"2", "posicao"=>"ZAG"),
+                                         "player3"=>array("imagem"=>"player.jpg", "nome"=>"Player", "numero"=>"3", "posicao"=>"ZAG"),
+                                         "player4"=>array("imagem"=>"player.jpg", "nome"=>"Player", "numero"=>"4", "posicao"=>"MEI"), 
+                                         "player5"=>array("imagem"=>"player.jpg", "nome"=>"Player", "numero"=>"5", "posicao"=>"MEI"),
+                                         "player6"=>array("imagem"=>"player.jpg", "nome"=>"Player", "numero"=>"6", "posicao"=>"MEI"),
+                                         "player7"=>array("imagem"=>"player.jpg", "nome"=>"Player", "numero"=>"7", "posicao"=>"LAT"), 
+                                         "player8"=>array("imagem"=>"player.jpg", "nome"=>"Player", "numero"=>"8", "posicao"=>"LAt"),
+                                         "player9"=>array("imagem"=>"player.jpg", "nome"=>"Player", "numero"=>"9", "posicao"=>"VOL"), 
+                                         "player10"=>array("imagem"=>"player.jpg", "nome"=>"Player", "numero"=>"10", "posicao"=>"ATA"),
+                                         "player11"=>array("imagem"=>"player.jpg", "nome"=>"Player", "numero"=>"11", "posicao"=>"ATA"),
+                                         "player12"=>array("imagem"=>"player.jpg", "nome"=>"Player", "posicao"=>"TEC")
+                              ),
+                              "footer" => array("direitos"=>"M1l G4AU", "color"=>"#FFFFFF", 
+                                      "contatos" => array("facebook"=>"", "twitter"=>"#","instagram"=>"", "linkedin"=>"", "rss"=>"")
+                              ), 
                             );
 
                             $collection->insert($document);

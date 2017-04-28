@@ -20,31 +20,31 @@
 								<label>
 									Nome Completo
 								</label>
-								<input type="name" name = "nome" class="form-control"  />
+								<input type="name" name = "nome" class="form-control"  required/>
 							</div>
 							<div class="form-group">
 								<label>
 									Apelido
 								</label>
-								<input type="name" name = "apelido" class="form-control" />
+								<input type="name" name = "apelido" class="form-control" required/>
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">
 									Email
 								</label>
-								<input type="email" name = "email" class="form-control" id="exampleInputEmail1" />
+								<input type="email" name = "email" class="form-control" id="exampleInputEmail1" required/>
 							</div>
 							<div class="form-group">
 								<label for="exampleInputPassword1">
 									Senha
 								</label>
-								<input type="password" name = "senha" class="form-control" id="exampleInputPassword1" />
+								<input type="password" name = "senha" class="form-control" id="exampleInputPassword1" required/>
 							</div>
 							<div class="form-group">
 								<label for="exampleInputPassword1">
 									Repetir senha
 								</label>
-								<input type="password" name = "repetirSenha" class="form-control" id="exampleInputPassword1" />
+								<input type="password" name = "repetirSenha" class="form-control" id="exampleInputPassword1" required/>
 							</div>
 							<div class="form-group log-status"  align = "right"> 
 	                           <button type="submit" class="btn btn-success">Criar</button>            

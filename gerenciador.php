@@ -19,6 +19,16 @@
     <link href="bootstrap-3.7/css/bootstrap.css" rel="stylesheet" media="screen">
     <link href="css/gerenciador.css" rel="stylesheet" media="screen">
     <script src="js/jquery-1.10.2.min.js"></script>
+
+    <style>
+    .modal p{
+      color: black;
+      text-align: center;
+      font-size: 20px;
+      margin: 20px;
+      border-bottom: 1px dashed;
+    }
+    </style>
 </head>
 
 <body>
@@ -35,308 +45,466 @@
       ?>
     </div>
 
+    <?php
+      include("../conexaoMongo.php");
+      $cursor = $collection->find(array("_id"=>$logado));
+      foreach ($cursor as $document) {  
+    ?>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 forms">
 
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 forms">
+            <!-- Modal plano de fundo-->
+            <div class="modal fade" id="formBackground" role="dialog">
+              <div class="modal-dialog">
+              
+                <!-- Modal content-->
+                <div class="modal-content">
 
-          <!-- Modal plano de fundo-->
-          <div class="modal fade" id="formBackground" role="dialog">
-            <div class="modal-dialog">
-            
-              <!-- Modal content-->
-              <div class="modal-content">
+                  <div class="modal-header" style="padding:35px 50px;">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4><span class="glyphicon glyphicon-picture"></span>Plano de fundo</h4>
+                  </div>
 
-                <div class="modal-header" style="padding:35px 50px;">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4><span class="glyphicon glyphicon-picture"></span>Plano de fundo</h4>
-                </div>
+                  <div class="modal-body" style="padding:40px 50px;">
+                      <form enctype="multipart/form-data" method="post"  action="update/updateBackground.php" name="formBackground">
+                        <div class="form-group">
+                          <label for="escudo">Image</label>
+                          <input type="file" class="form-control" name="imagem" required>
+                        </div>
+                          <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-floppy-saved"></span>SALVAR</button>
+                      </form>
+                  </div>
 
-                <div class="modal-body" style="padding:40px 50px;">
-                    <form enctype="multipart/form-data" method="post"  action="update/updateBackground.php" name="formBackground">
-                      <div class="form-group">
-                        <label for="escudo">Image</label>
-                        <input type="file" class="form-control" name="imagem" required>
-                      </div>
-                        <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-floppy-saved"></span>SALVAR</button>
-                    </form>
-                </div>
-
-              </div><!--/modal-content-->
-            </div><!--/modal-dialog-->
-          </div> <!--/modal-->
+                </div><!--/modal-content-->
+              </div><!--/modal-dialog-->
+            </div> <!--/modal-->
 
 
 
 
 
-          <!-- Modal escudo-->
-          <div class="modal fade" id="formEscudo" role="dialog">
-            <div class="modal-dialog">
-            
-              <!-- Modal content-->
-              <div class="modal-content">
+            <!-- Modal escudo-->
+            <div class="modal fade" id="formEscudo" role="dialog">
+              <div class="modal-dialog">
+              
+                <!-- Modal content-->
+                <div class="modal-content">
 
-                <div class="modal-header" style="padding:35px 50px;">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <img src="images/times/escudo.png">
-                    <h4><span class="glyphicon"></span> Editar Escudo</h4>
-                </div>
+                  <div class="modal-header" style="padding:35px 50px;">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <img src="images/times/escudo.png">
+                      <h4><span class="glyphicon"></span> Editar Escudo</h4>
+                  </div>
 
-                <div class="modal-body" style="padding:40px 50px;">
-                    <form enctype="multipart/form-data" method="post"  action="update/updateEscudo.php">
-                      <div class="form-group">
-                        <label for="escudo">Escudo</label>
-                        <input type="file" class="form-control" name="escudo">
-                      </div>
-                      <div class="form-group">
-                        <label for="psw">Nome</label>
-                        <input type="text" class="form-control" name="nomeClube" placeholder="Nome do Clube" required>
-                        <input type="color"  name="nomeClubeColor">
-                      </div>
-                      <!--<div class="checkbox">
-                        <label><input type="checkbox" value="" checked>Remember me</label>
-                      </div>-->
-                        <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-floppy-saved"></span>SALVAR</button>
-                    </form>
-                </div>
+                  <div class="modal-body" style="padding:40px 50px;">
+                      <form enctype="multipart/form-data" method="post"  action="update/updateEscudo.php">
+                        <div class="form-group">
+                          <label for="escudo">Escudo</label>
+                          <input type="file" class="form-control" name="escudo">
+                        </div>
+                        <div class="form-group">
+                          <label for="psw">Nome</label>
+                          <input type="text" class="form-control" value='<?=$document["clube"]["nome"];?>' name="nomeClube" placeholder="Nome do Clube" required>
+                          <input type="color" id="nomeClubeColor" class="form-control" name="nomeClubeColor">
+                        </div>
+                        <!--<div class="checkbox">
+                          <label><input type="checkbox" value="" checked>Remember me</label>
+                        </div>-->
+                          <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-floppy-saved"></span>SALVAR</button>
+                      </form>
+                  </div>
 
-              </div><!--/modal-content-->
-            </div><!--/modal-dialog-->
-          </div> <!--/modal-->
+                </div><!--/modal-content-->
+              </div><!--/modal-dialog-->
+            </div> <!--/modal-->
 
-          <!-- Modal ultimo jogo-->
-          <div class="modal fade" id="modalUltimoJogo" role="dialog">
-            <div class="modal-dialog">
-            
-              <!-- Modal content-->
-              <div class="modal-content">
+            <!-- Modal ultimo jogo-->
+            <div class="modal fade" id="modalJogos" role="dialog">
+              <div class="modal-dialog">
+              
+                <!-- Modal content-->
+                <div class="modal-content">
 
-                <div class="modal-header" style="padding:35px 50px;">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <img src="images/times/escudo.png">
-                    <h4><span class="glyphicon"></span> Editar Ultimo Jogo</h4>
-                </div>
+                  <div class="modal-header" style="padding:35px 50px;">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h1>Editar Ultimo Jogo</h1>
+                  </div>
 
-                <div class="modal-body" style="padding:40px 50px;">
-                    <form enctype="multipart/form-data" method="post"  action="update/updateUltimoJogo.php">
-                      <div class="form-group">
-                        <label for="header">Cor</label>
-                        <input type="color" class="form-control"  name="backgroundHeader">
-                        <label for="headerNome">Cor do nome</label>
-                        <input type="color" class="form-control"  name="headerColor">
-                      </div>
-                      <div class="form-group">
-                        <label for="background">Cor</label>
-                        <input type="color"  name="backgroundColor">
+                  <div class="modal-body" style="padding:40px 50px;">
+                      <form method="post"  action="update/updateUltimoJogo.php">
+                        <input type="hidden" id="actionModalJogos" name="action" value="">
+                        <div class="form-group">
+                          <p>CABEÇALHO</p>
+                          <div>
+                            <label for="header">Fundo</label>
+                            <input type="color"    name="backgroundHeader">
+                          </div>
+                          <div>
+                            <label for="headerNome">Titulo</label>
+                            <input type="color"  name="headerColor">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <p>Clubes</p>
+                          <div>
+                            <label for="background">FUNDO</label>
+                            <input type="color" name="backgroundColor">
+                          </div>
+                          <div>
+                            <label for="textColor">Texto</label>
+                            <input type="color" name="textColor">
+                          </div>
 
-                        <label for="man">Mandante</label>
-                        <input type="text" class="form-control" name="man" placeholder="Nome do time" required>
-                        <input type="color"  name="nomeClubeColor">
+                          <label for="man">Mandante</label>
+                          <input type="text" class="form-control" name="man" placeholder="Nome do time" required>
+                          <label for="placarMan">placar</label>
+                          <input type="Number" class="form-control" id="placarMan" name="placarMan" placeholder="Nome do time" required>
+                          
 
-                        <label for="vis">Visitante</label>
-                        <input type="text" class="form-control" name="vis" placeholder="Nome do time" required>
+                          <label for="vis">Visitante</label>
+                          <input type="text" class="form-control" name="vis" placeholder="Nome do time" required>
+                          <label for="placarman">placar</label>
+                          <input type="Number" class="form-control" id="placarVis" name="placarVis" placeholder="Nome do time" required>
 
-                        <label for="dataHora">Data e hora</label>
-                        <input type="datetime-local" class="form-control" name="dataHora" value="2014-11-16T15:25">
+                          <label for="dataHora">Data e hora</label>
+                          <input type="datetime-local" class="form-control" name="data" value="2014-11-16T15:25">
 
-                        <label for="textColor">Cor do texto</label>
-                        <input type="color"  name="textColor">
+                        </div>
+                        <!--<div class="checkbox">
+                          <label><input type="checkbox" value="" checked>Remember me</label>
+                        </div>-->
+                          <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-floppy-saved"></span>SALVAR</button>
+                      </form>
+                  </div>
 
-                      </div>
-                      <!--<div class="checkbox">
-                        <label><input type="checkbox" value="" checked>Remember me</label>
-                      </div>-->
-                        <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-floppy-saved"></span>SALVAR</button>
-                    </form>
-                </div>
+                </div><!--/modal-content-->
+              </div><!--/modal-dialog-->
+            </div> <!--/modal-->
 
-              </div><!--/modal-content-->
-            </div><!--/modal-dialog-->
-          </div> <!--/modal-->
+            <!-- Modal noticia titulo-->
+            <div class="modal fade" id="newTitle" role="dialog">
+              <div class="modal-dialog">
+              
+                <!-- Modal content-->
+                <div class="modal-content">
 
-          <!-- Modal noticia1-->
-          <div class="modal fade" id="news1" role="dialog">
-            <div class="modal-dialog">
-            
-              <!-- Modal content-->
-              <div class="modal-content">
+                  <div class="modal-header" style="padding:35px 50px;">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4><span class="glyphicon"></span> Editar Titulo</h4>
+                  </div>
 
-                <div class="modal-header" style="padding:35px 50px;">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <img src="images/c1.png">
-                    <h4><span class="glyphicon"></span> Editar Noticia</h4>
-                </div>
+                  <div class="modal-body" style="padding:40px 50px;">
+                      <form method="post"  action="update/updateNew.php">
+                        <div class="form-group">
+                          <label for="corNoticia">Cor do texto</label>
+                          <input type="color" class="form-control"  name="background">
 
-                <div class="modal-body" style="padding:40px 50px;">
-                    <form method="post"  action="update/updateNews1.php">
-                      <div class="form-group">
-                        <label for="corNoticia">Cor de fundo</label>
-                        <input type="color" class="form-control"  name="background">
-
-                        <label for="title">Titulo</label>
-                        <input type="text" class="form-control" name="title" placeholder="Nome do titulo" required>
-                        <label for="corTitulo">Cor do titulo</label>
-                        <input type="color" class="form-control" name="titleColor">
-                        <label for="posicaoTitulo">Posição do titulo</label>
-                        <select class="form-control" name="titleAling" id="posicao" required>
-                            <option value="">Escolha a posição</option>
-                            <option value="center">Centro</option>
-                            <option value="right">Direita</option>
-                            <option value="left">Esquerda</option>
-                            <option value="justify">Justificado</option>
-                        </select>
-                        
-                        <label for="noticia">Noticia</label>
-                        <textarea class="form-control" rows="5" name="noticia" id="noticia"></textarea>
-                      </div>
-                      <!--<div class="checkbox">
-                        <label><input type="checkbox" value="" checked>Remember me</label>
-                      </div>-->
-                        <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-floppy-saved"></span>SALVAR</button>
-                    </form>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Modal noticia2-->
-          <div class="modal fade" id="news2" role="dialog">
-            <div class="modal-dialog">
-            
-              <!-- Modal content-->
-              <div class="modal-content">
-
-                <div class="modal-header" style="padding:35px 50px;">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <img src="images/c2.png">
-                    <h4><span class="glyphicon"></span> Editar Noticia</h4>
-                </div>
-
-                <div class="modal-body" style="padding:40px 50px;">
-                    <form method="post"  action="update/updateNews2.php">
-                      <div class="form-group">
-                        <label for="corNoticia">Cor de fundo</label>
-                        <input type="color" class="form-control"  name="background">
-
-                        <label for="title">Titulo</label>
-                        <input type="text" class="form-control" name="title" placeholder="Nome do titulo" required>
-                        <label for="corTitulo">Cor do titulo</label>
-                        <input type="color" class="form-control" name="titleColor">
-                        <label for="posicaoTitulo">Posição do titulo</label>
-                        <select class="form-control" name="titleAling" id="posicao" required>
-                            <option value="">Escolha a posição</option>
-                            <option value="center">Centro</option>
-                            <option value="right">Direita</option>
-                            <option value="left">Esquerda</option>
-                            <option value="justify">Justificado</option>
-                        </select>
-                        
-                        <label for="noticia">Noticia</label>
-                        <textarea class="form-control" rows="5" name="noticia" id="noticia"></textarea>
-                      </div>
-                      <!--<div class="checkbox">
-                        <label><input type="checkbox" value="" checked>Remember me</label>
-                      </div>-->
-                        <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-floppy-saved"></span>SALVAR</button>
-                    </form>
-                </div>
-                </div>
-              </div>
-            </div>
-    
-
-          <!-- Modal noticia3-->
-          <div class="modal fade" id="news3" role="dialog">
-            <div class="modal-dialog">
-            
-              <!-- Modal content-->
-              <div class="modal-content">
-
-                <div class="modal-header" style="padding:35px 50px;">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <img src="images/c3.png">
-                    <h4><span class="glyphicon"></span> Editar Noticia</h4>
-                </div>
-
-                <div class="modal-body" style="padding:40px 50px;">
-                    <form method="post"  action="update/updateNews3.php">
-                      <div class="form-group">
-                        <label for="corNoticia">Cor de fundo</label>
-                        <input type="color" class="form-control"  name="background">
-
-                        <label for="title">Titulo</label>
-                        <input type="text" class="form-control" name="title" placeholder="Nome do titulo" required>
-                        <label for="corTitulo">Cor do titulo</label>
-                        <input type="color" class="form-control" name="titleColor">
-                        <label for="posicaoTitulo">Posição do titulo</label>
-                        <select class="form-control" name="titleAling" id="posicao" required>
-                            <option value="">Escolha a posição</option>
-                            <option value="center">Centro</option>
-                            <option value="right">Direita</option>
-                            <option value="left">Esquerda</option>
-                            <option value="justify">Justificado</option>
-                        </select>
-                        
-                        <label for="noticia">Noticia</label>
-                        <textarea class="form-control" rows="5" name="noticia" id="noticia"></textarea>
-                      </div>
-                      <!--<div class="checkbox">
-                        <label><input type="checkbox" value="" checked>Remember me</label>
-                      </div>-->
-                        <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-floppy-saved"></span>SALVAR</button>
-                    </form>
-                </div>
+                          <label for="posicaoTitulo">Posição do titulo</label>
+                          <select class="form-control" name="titleAling" id="posicao" required>
+                              <option value="">Escolha a posição</option>
+                              <option value="center">Centro</option>
+                              <option value="left">Esquerda</option>
+                          </select>
+                        </div>
+                        <!--<div class="checkbox">
+                          <label><input type="checkbox" value="" checked>Remember me</label>
+                        </div>-->
+                          <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-floppy-saved"></span>SALVAR</button>
+                      </form>
+                  </div>
                 </div>
               </div>
             </div>
 
-        <!-- Modal footer-->
-          <div class="modal fade" id="footer" role="dialog">
-            <div class="modal-dialog">
+            <!-- Modal noticia1-->
+            <div class="modal fade" id="modalNoticias" role="dialog">
+              <div class="modal-dialog">
+              
+                <!-- Modal content-->
+                <div class="modal-content">
+
+                  <div class="modal-header" style="padding:35px 50px;">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4><span class="glyphicon"></span> Editar Noticia</h4>
+                  </div>
+
+                  <div class="modal-body" style="padding:40px 50px;">
+                      <form method="post"  action="update/updateNews.php">
+                        <input type="hidden" id="actionModalNoticias" name="action">
+                        <div class="form-group">
+                          <p>Fundo</p>
+                          <input type="color" id="noticiaBackground" name="background">
+                          <p>Titulo</p>
+                          <input type="text" class="form-control" id="title" name="title" placeholder="Nome do titulo" value='' required>
+                          <input type="color" id="titleColor" name="titleColor">                          
+                          <p>Noticia</p>
+                          <input type="color"  id="corNoticia" name="corNoticia">
+                          <textarea class="form-control" rows="5" name="noticia" id="noticia"></textarea>
+                        </div>
+                        
+                          <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-floppy-saved"></span>SALVAR</button>
+                      </form>
+                  </div>
+                </div>
+              </div>
+            </div>
             
-              <!-- Modal content-->
-              <div class="modal-content">
+            
+            <!-- Modal Titulo Jogadores-->
+            <div class="modal fade" id="jogadorTitle" role="dialog">
+              <div class="modal-dialog">
+              
+                <!-- Modal content-->
+                <div class="modal-content">
 
-                <div class="modal-header" style="padding:35px 50px;">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <img src="images/times/escudo.png">
-                    <h4><span class="glyphicon"></span> Editar Footer</h4>
+                  <div class="modal-header" style="padding:35px 50px;">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <img src="images/c1.png">
+                      <h4><span class="glyphicon"></span> Editar Titulo</h4>
+                  </div>
+
+                  <div class="modal-body" style="padding:40px 50px;">
+                      <form method="post"  action="update/updateJogadorTitulo.php">
+                        <div class="form-group">
+                          <label for="corNoticia">Cor do texto</label>
+                          <input type="color" class="form-control"  name="background">
+
+                          <label for="posicaoTitulo">Posição do titulo</label>
+                          <select class="form-control" name="titleAling" id="posicao" required>
+                              <option value="">Escolha a posição</option>
+                              <option value="center">Centro</option>
+                              <option value="left">Esquerda</option>
+                          </select>
+                        </div>
+                        <!--<div class="checkbox">
+                          <label><input type="checkbox" value="" checked>Remember me</label>
+                        </div>-->
+                          <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-floppy-saved"></span>SALVAR</button>
+                      </form>
+                  </div>
                 </div>
+              </div>
+            </div>
 
-                <div class="modal-body" style="padding:40px 50px;">
-                    <form enctype="multipart/form-data" method="post"  action="update/updateEscudo.php">
-                      <div class="form-group">
-                        <input type="color"  name="nomeFooterColor">
-                        <label for="copyright">Copyright</label>
-                        <input type="text" class="form-control" name="copyright" placeholder="Nome do Copyright" required>
-                        <label for="facebook">Facebook</label>
-                        <input type="text" class="form-control" name="facebook" placeholder="Nome do Facebook" required>
-                        <label for="twitter">Twitter</label>
-                        <input type="text" class="form-control" name="twitter" placeholder="Nome do Twitter" required>
-                        <label for="linkedin">Linkedin</label>
-                        <input type="text" class="form-control" name="linkedin" placeholder="Nome do linkedin" required>
-                        <label for="instagram">Instagram</label>
-                        <input type="text" class="form-control" name="instagram" placeholder="Nome do instagram" required>
-                        <label for="rss">Rss</label>
-                        <input type="text" class="form-control" name="rss" placeholder="Nome do rss" required>
-                      </div>
-                      <!--<div class="checkbox">
-                        <label><input type="checkbox" value="" checked>Remember me</label>
-                      </div>-->
-                        <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-floppy-saved"></span>SALVAR</button>
-                    </form>
-                </div>
 
-              </div><!--/modal-content-->
-            </div><!--/modal-dialog-->
-          </div> <!--/modal-->     
-        </div><!--/col-->
-      </div ><!--/row-->  
-    </div><!--/container-->
+              <!-- Modal foto jogador-->
+            <div class="modal fade" id="modalFotoJogador" role="dialog">
+              <div class="modal-dialog">
+              
+                <!-- Modal content-->
+                <div class="modal-content">
+
+                  <div class="modal-header" style="padding:35px 50px;">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4><span class="glyphicon"></span> Editar Jogador</h4>
+                  </div>
+
+                  <div class="modal-body" style="padding:40px 50px;">
+                      <form enctype="multipart/form-data" method="post"  action="update/updateJogador.php">
+                        <input type="hidden" id="actionModalJogador" name="action">
+                        <div class="form-group">
+                          <label for="foto">Foto jogador</label>
+                          <input type="file" class="form-control" name="imagem">
+                        </div>
+                        <div class="form-group">
+                          <label for="nomeJogador">Nome do jogador</label>
+                          <input type="text" class="form-control" id="nomeJogador" name="nomeJogador" placeholder="Nome do jogador" required>
+                          <label for="posicaoJogador">Posicao do jogador</label>
+                          <input type="text" class="form-control" id="posicaoJogador" name="posicaoJogador" placeholder="Posicao jogador" required>
+                          <label for="numeroCamisa">Número da camisa</label>
+                          <input type="number" class="form-control" id="numeroCamisa" name="numeroCamisa" placeholder="Número da camisa">
+                          <input type="color" id="corNomeJogador" name="corNomeJogador">
+                        </div>
+                        <!--<div class="checkbox">
+                          <label><input type="checkbox" value="" checked>Remember me</label>
+                        </div>-->
+                          <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-floppy-saved"></span>SALVAR</button>
+                      </form>
+                  </div>
+
+                </div><!--/modal-content-->
+              </div><!--/modal-dialog-->
+            </div> <!--/modal-->
+
+          <!-- Modal footer-->
+            <div class="modal fade" id="footer" role="dialog">
+              <div class="modal-dialog">
+              
+                <!-- Modal content-->
+                <div class="modal-content">
+
+                  <div class="modal-header" style="padding:35px 50px;">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4><span class="glyphicon"></span> Editar Footer</h4>
+                  </div>
+
+                  <div class="modal-body" style="padding:40px 50px;">
+                      <form method="post"  action="update/updateFooter.php">
+                        <div class="form-group">
+                          <label for="copyright">Copyright</label>
+                          <input type="text" class="form-control" value='<?=$document["footer"]["direitos"];?>' name="copyright" placeholder="Nome do Copyright" >
+                          <label for="facebook">Facebook</label>
+                          <input type="text" class="form-control" value='<?=$document["footer"]["contatos"]["facebook"];?>' name="facebook" placeholder="Nome do Facebook" >
+                          <label for="twitter">Twitter</label>
+                          <input type="text" class="form-control" value='<?=$document["footer"]["contatos"]["twitter"];?>' name="twitter" placeholder="Nome do Twitter" >
+                          <label for="linkedin">Linkedin</label>
+                          <input type="text" class="form-control" value='<?=$document["footer"]["contatos"]["linkedin"];?>' name="linkedin" placeholder="Nome do linkedin" >
+                          <label for="instagram">Instagram</label>
+                          <input type="text" class="form-control" value='<?=$document["footer"]["contatos"]["instagram"];?>' name="instagram" placeholder="Nome do instagram" >
+                          <label for="rss">Rss</label>
+                          <input type="text" class="form-control" value='<?=$document["footer"]["contatos"]["rss"];?>' name="rss" placeholder="Nome do rss" required>
+                          <input type="color" class="form-control" name="nomeFooterColor">
+                        </div>
+                        <!--<div class="checkbox">
+                          <label><input type="checkbox" value="" checked>Remember me</label>
+                        </div>-->
+                          <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-floppy-saved"></span>SALVAR</button>
+                      </form>
+                  </div>
+
+                </div><!--/modal-content-->
+              </div><!--/modal-dialog-->
+            </div> <!--/modal-->     
+          </div><!--/col-->
+        </div ><!--/row-->  
+      </div><!--/container-->
 
       <script src="bootstrap-3.7/js/bootstrap.min.js"></script>
       <script src="js/gerenciador.js"></script>
+
+      <script>
+        //=====================================escudo e nome do clube==========================
+        $("#escudo").click(function(){
+          $("#nomeClubeColor").val("<?php echo $document["clube"]["color"]; ?>");
+            //document.getElementById('nomeClubeColor').value = "#FFFFFF";
+        })
+        //======================================================================================
+
+
+
+
+        //============================== noticias ==============================================
+        $("#news1").click(function(){
+          $("#title").val("<?php echo $document["news"]["news1"]["title"]["texto"]; ?>");
+          $("#noticia").val("<?php echo $document["news"]["news1"]["noticia"]; ?>");
+          newsDefault();
+        })
+        $("#news2").click(function(){
+          $("#title").val("<?php echo $document["news"]["news2"]["title"]["texto"]; ?>");
+          $("#noticia").val("<?php echo $document["news"]["news2"]["noticia"]; ?>");
+          newsDefault();
+        })
+        $("#news3").click(function(){
+          $("#title").val("<?php echo $document["news"]["news3"]["title"]["texto"]; ?>");
+          $("#noticia").val("<?php echo $document["news"]["news3"]["noticia"]; ?>");
+          newsDefault();
+        })
+
+        function newsDefault(){
+          $("#titleColor").val("<?php echo $document["news"]["titleColor"]; ?>");   
+          $("#noticiaBackground").val("<?php echo $document["news"]["background"]; ?>");  
+          $("#corNoticia").val("<?php echo $document["news"]["color"]; ?>");     
+        }
+        //======================================================================================
+
+
+
+
+        //======================================js jogadores ===================================
+        $("#jogador1").click(function(){
+            $("#nomeJogador").val("<?php echo $document["jogadores"]["player1"]["nome"];?>"); 
+            $("#numeroCamisa").val("<?php echo $document["jogadores"]["player1"]["numero"];?>"); 
+            $("#posicaoJogador").val("<?php echo $document["jogadores"]["player1"]["posicao"];?>"); 
+            jogadoresDefault();
+        }) 
+        $("#jogador2").click(function(){
+            $("#nomeJogador").val("<?php echo $document["jogadores"]["player2"]["nome"];?>"); 
+            $("#numeroCamisa").val("<?php echo $document["jogadores"]["player2"]["numero"];?>");
+            $("#posicaoJogador").val("<?php echo $document["jogadores"]["player2"]["posicao"];?>"); 
+            jogadoresDefault(); 
+        })
+        $("#jogador3").click(function(){
+            $("#nomeJogador").val("<?php echo $document["jogadores"]["player3"]["nome"];?>"); 
+            $("#numeroCamisa").val("<?php echo $document["jogadores"]["player3"]["numero"];?>"); 
+            $("#posicaoJogador").val("<?php echo $document["jogadores"]["player3"]["posicao"];?>"); 
+            jogadoresDefault();
+        }) 
+        $("#jogador4").click(function(){
+            $("#nomeJogador").val("<?php echo $document["jogadores"]["player4"]["nome"];?>"); 
+            $("#numeroCamisa").val("<?php echo $document["jogadores"]["player4"]["numero"];?>"); 
+            $("#posicaoJogador").val("<?php echo $document["jogadores"]["player4"]["posicao"];?>"); 
+            jogadoresDefault();
+        })
+        $("#jogador5").click(function(){
+            $("#nomeJogador").val("<?php echo $document["jogadores"]["player5"]["nome"];?>"); 
+            $("#numeroCamisa").val("<?php echo $document["jogadores"]["player5"]["numero"];?>");
+            $("#posicaoJogador").val("<?php echo $document["jogadores"]["player5"]["posicao"];?>"); 
+            jogadoresDefault(); 
+        }) 
+        $("#jogador6").click(function(){
+            $("#nomeJogador").val("<?php echo $document["jogadores"]["player6"]["nome"];?>"); 
+            $("#numeroCamisa").val("<?php echo $document["jogadores"]["player6"]["numero"];?>");
+            $("#posicaoJogador").val("<?php echo $document["jogadores"]["player6"]["posicao"];?>"); 
+            jogadoresDefault(); 
+        })
+        $("#jogador7").click(function(){
+            $("#nomeJogador").val("<?php echo $document["jogadores"]["player7"]["nome"];?>"); 
+            $("#numeroCamisa").val("<?php echo $document["jogadores"]["player7"]["numero"];?>");
+            $("#posicaoJogador").val("<?php echo $document["jogadores"]["player7"]["posicao"];?>");  
+            jogadoresDefault();
+        }) 
+        $("#jogador8").click(function(){
+            $("#nomeJogador").val("<?php echo $document["jogadores"]["player8"]["nome"];?>"); 
+            $("#numeroCamisa").val("<?php echo $document["jogadores"]["player8"]["numero"];?>"); 
+            $("#posicaoJogador").val("<?php echo $document["jogadores"]["player8"]["posicao"];?>"); 
+            jogadoresDefault();
+        })      
+        $("#jogador9").click(function(){
+            $("#nomeJogador").val("<?php echo $document["jogadores"]["player9"]["nome"];?>"); 
+            $("#numeroCamisa").val("<?php echo $document["jogadores"]["player9"]["numero"];?>");
+            $("#posicaoJogador").val("<?php echo $document["jogadores"]["player9"]["posicao"];?>");  
+            jogadoresDefault();
+        }) 
+        $("#jogador10").click(function(){
+            $("#nomeJogador").val("<?php echo $document["jogadores"]["player10"]["nome"];?>"); 
+            $("#numeroCamisa").val("<?php echo $document["jogadores"]["player10"]["numero"];?>"); 
+            $("#posicaoJogador").val("<?php echo $document["jogadores"]["player10"]["posicao"];?>"); 
+            jogadoresDefault();
+        }) 
+        $("#jogador11").click(function(){
+            $("#nomeJogador").val("<?php echo $document["jogadores"]["player11"]["nome"];?>"); 
+            $("#numeroCamisa").val("<?php echo $document["jogadores"]["player11"]["numero"];?>"); 
+            $("#posicaoJogador").val("<?php echo $document["jogadores"]["player11"]["posicao"];?>"); 
+            jogadoresDefault();
+        }) 
+        $("#jogador12").click(function(){
+            $("#nomeJogador").val("<?php echo $document["jogadores"]["player12"]["nome"];?>");
+            $("#posicaoJogador").val("<?php echo $document["jogadores"]["player12"]["posicao"];?>"); 
+            jogadoresDefault();
+        }) 
+
+        function jogadoresDefault(){
+          $("#corNomeJogador").val("<?php echo $document["jogadores"]["textColor"] ?>");
+        }
+        //==============================================================================================================================
+
+
+
+        //=============================================== redes sociais =================================================================
+        $(document).ready(function() {
+            $("#facebook").attr("href", "<?php echo $document["footer"]["contatos"]["facebook"]?>;");
+            $("#twitter").attr("href", "<?php echo $document["footer"]["contatos"]["twitter"]?>;");
+            $("#instagram").attr("href", "<?php echo $document["footer"]["contatos"]["instagram"]?>;");
+            $("#linkedin").attr("href", "<?php echo $document["footer"]["contatos"]["linkedin"]?>;");
+            $("#rss").attr("href", "<?php echo $document["footer"]["contatos"]["rss"]?>;");
+            $("#copyright").html("<?php echo $document["footer"]["direitos"]; ?>");
+        });
+      </script>
+
+    <?php
+      }
+    ?>
       
 </body>
 </html>

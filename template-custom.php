@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html class="no-js" lang="pt-br"> 
 <head>
+  <?php  
+          //esse bloco de código em php verifica se existe a sessão, pois o usuário pode simplesmente não fazer o login e digitar na barra de endereço do seu navegador o caminho para a página principal do site (sistema), burlando assim a obrigação de fazer um login, com isso se ele não estiver feito o login não será criado a session, então ao verificar que a session não existe a página redireciona o mesmo para a index.php.
+          session_start();
+          if((!isset ($_SESSION['email']) == true) and (!isset ($_SESSION['senha']) == true))
+          {
+            unset($_SESSION['email']);
+            unset($_SESSION['senha']);
+            header('location:index.php');
+          }
+
+          $logado = $_SESSION['email'];
+    ?>
     <title>ARENA M1L G4AU</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="O ARENA M1L G4AU É UM SITE ESPORTIVO QUE TEM COMO OBJETIVO DIVULGAR OS PRINCIPAIS CAMPEONATOS/TORNEIOS LOCAIS. NA PAGINA INICIAL É POSSIVEL VISUALIZAR TODOS OS CAMPEONATOS/TORNEIOS QUE SERÃO REALIZADOS, O MESMO SUPORTA TODOS OS FORMATOS DE CAMPEONATO. ATRAVÉZ DE NOSSA PAGINA VOCÊ FICA POR DENTRO DAS PRINCIPAIS COMPETIÇÕES QUE ACONTECEM NA CIDADA.">
@@ -54,23 +66,23 @@
 
                             <div class="service edit">
                               <div class="edit-content">
-                                <div class="header" id="headerUltimoJogo">
-                                    <div class="service-header">
+                                <div class="header " id="header">
+                                    <div class="service-header headerJogos">
                                         <h3 class="service-title">
                                             ULTIMO JOGO
                                         </h3>
                                     </div>
                                 </div>
 
-                                <div class="body" id="bodyUltimoJogo">
+                                <div class="body" id="body">
                                     <div class="row">
-                                        <div id="update_jogos">
-                                          <div class="col-md-12">
+                                        <div id="update_jogos ">
+                                          <div class="col-md-12 ">
                                               <div class="confrontos">
                                                   <div class="member-infos">
-                                                      <h4 class="member-name"><spam class="glyphicon"><img src="images/times/escudo.png"></spam> <span class="clube">MAN</span> <spam class="placar"> 2 </spam></h4>
-                                                      <h4 class="member-name"><spam class="glyphicon"><img src="images/times/escudo.png"></spam> <span class="clube">MAN</span> <spam class="placar"> 2</spam></h4>
-                                                      <h5 class="member-name dataJogo"><span class="glyphicon glyphicon-calendar"></span>01/01/01 12:00</h5>
+                                                      <h4 class="member-name"><spam class="glyphicon"><img src="images/times/escudo.png"></spam> <span id="clubeMan1"></span> <spam id="placarClubeMan1"></spam></h4>
+                                                      <h4 class="member-name"><spam class="glyphicon"><img src="images/times/escudo.png"></spam> <span id="clubeVis1"></span> <spam id="placarClubeVis1"></spam></h4>
+                                                      <h5 class="member-name dataJogo"><span class="glyphicon glyphicon-calendar"></span><span id="data1"></span></h5>
                                                   </div><!-- /.member-infos --> 
                                               </div><!-- /.confrontos -->  
                                           </div> <!-- /.col-md-12 -->
@@ -86,23 +98,23 @@
 
                             <div class="service edit">
                               <div class="edit-content">
-                                <div class="header" id="headerProximoJogo">
-                                    <div class="service-header">
+                                <div class="header" id="header">
+                                    <div class="service-header headerJogos">
                                         <h3 class="service-title">
                                           PROXIMO JOGO
                                         </h3>
                                     </div>
                                 </div>
 
-                                <div class="body" id="bodyProximoJogo">
+                                <div class="body" id="body">
                                     <div class="row">
                                         <div id="update_jogos">
                                           <div class="col-md-12">
                                               <div class="confrontos">
                                                   <div class="member-infos">
-                                                      <h4 class="member-name"><spam class="glyphicon"><img src="images/times/escudo.png"></spam> <span class="clube">MAN</span> <spam class="placar"> 2 </spam></h4>
-                                                      <h4 class="member-name"><spam class="glyphicon"><img src="images/times/escudo.png"></spam> <span class="clube">MAN</span> <spam class="placar"> 2</spam></h4>
-                                                      <h5 class="member-name dataJogo"><span class="glyphicon glyphicon-calendar"></span>01/01/01 12:00</h5>
+                                                      <h4 class="member-name"><spam class="glyphicon"><img src="images/times/escudo.png"></spam> <span id="clubeMan2"></span> <spam id="placarClubeMan2"></spam></h4>
+                                                      <h4 class="member-name"><spam class="glyphicon"><img src="images/times/escudo.png"></spam> <span id="clubeVis2"></span> <spam id="placarClubeVis2"></spam></h4>
+                                                      <h5 class="member-name dataJogo"><span class="glyphicon glyphicon-calendar"></span><span id="data2"></h5>
                                                   </div><!-- /.member-infos --> 
                                               </div><!-- /.confrontos -->  
                                           </div> <!-- /.col-md-12 -->
@@ -118,7 +130,7 @@
                     
                     <!--elencos-->
                     <div class="noticias row">
-                    <div id="news" class="page-header edit">
+                    <div class="page-header edit separadores">
                       <div class="edit-content">
                           <h2 class="page-title">Noticias</h2>
                       </div>
@@ -157,7 +169,7 @@
 
 
                     <!--elenco-->
-                    <div id="elenco" class="page-header edit">
+                    <div id="elenco" class="page-header edit separadores">
                       <div class="edit-content">
                           <h2 class="page-title">Elenco</h2>
                       </div>
@@ -274,35 +286,44 @@
                         </div>
                       </div>
 
-                      <div class="col-md-2 col-sm-3 col-xs-4"  id="jogador12">
+                      <div class="col-md-2 col-sm-3 col-xs-4" id="jogador12">
                         <div class="polaroid edit">
                           <div class="edit-content">
                               <img id="player12" class="img-responsive" src="#">
-                              <p id="p12Nome"></p>
+                              <p id="p12Nome"><span id="p11Numero" class="numero glyphicon"></span></p>
                               <p id="posicaoP12"></p>
                           </div>
                         </div>
                       </div>
+
                   </div>
                
 
                     <div id="site-footer" class="site-footer edit">
                         <div class="row">
+                        <?php
+                          include("../conexaoMongo.php");
+                          $cursor = $collection->find(array("_id"=>$logado));
+                          foreach ($cursor as $document) {  
+                        ?>
                             <div class="col-md-6">
-                                <p class="copyright-text">Copyright &copy; <span id="copyright"></span>
+                                <p class="copyright-text">Copyright &copy; <?php echo $document["footer"]["direitos"];?><span id="copyright"></span>
                                 </p>
                             </div>
                             <div class="col-md-6">
                                 <div class="social-icons-footer">
                                     <ul>
-                                        <li><a id="facebook" href="#" class="fa fa-facebook"></a></li>
-                                        <li><a id="twitter" href="#" class="fa fa-twitter"></a></li>
-                                        <li><a id="linkedin" href="#" class="fa fa-linkedin"></a></li>
-                                        <li><a id="instagram" href="#" class="fa fa-instagram"></a></li>
-                                        <li><a id="rss" href="#" class="fa fa-rss"></a></li>
+                                        <li><a id="facebook" href="<?php echo $document["footer"]["contatos"]["facebook"];?>" class="fa fa-facebook"></a></li>
+                                        <li><a id="twitter" href="<?php echo $document["footer"]["contatos"]["twitter"];?>"class="fa fa-twitter"></a></li>
+                                        <li><a id="linkedin" href="<?php echo $document["footer"]["contatos"]["linkedin"];?>" class="fa fa-linkedin"></a></li>
+                                        <li><a id="instagram" href="<?php echo $document["footer"]["contatos"]["instagram"];?>" class="fa fa-instagram"></a></li>
+                                        <li><a id="rss" href="<?php echo $document["footer"]["contatos"]["rss"];?>" class="fa fa-rss"></a></li>
                                     </ul>
                                 </div>
                             </div>
+                        <?php
+                          }
+                        ?>
                         </div>
                     </div> <!--/.site-footer -->             
                 
@@ -325,7 +346,8 @@
         $(window).load(function(){
           $("#loader").fadeOut("slow");
        });
-    </script>    
+    </script>
+   
 <!--   -->
 </body>
 

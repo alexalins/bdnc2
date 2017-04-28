@@ -25,14 +25,14 @@ $(document).ready(function(){
       $("#modalJogos").modal();
       $("#actionModalJogos").val("ultimoJogo");
     });
-    $("#proximJogo").click(function(){
+    $("#proximoJogo").click(function(){
       $("#modalJogos").modal();
       $("#actionModalJogos").val("proximoJogo");
     });
     $("#jogador").click(function(){
       $("#modalFotoJogador").modal();
     });
-    $("#news").click(function(){
+    $(".separadores").click(function(){
       $("#newTitle").modal();
     });
     $("#elenco").click(function(){

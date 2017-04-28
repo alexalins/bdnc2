@@ -31,26 +31,51 @@
 #logo{
 	content:url("../images/<?php echo $document["escudo"];?>");
 }
-#headerUltimoJogo{
-	background-color: <?php echo $document["ultimoJogo"]["header"]["background"];?>;
-	text-align: <?php echo $document["ultimoJogo"]["header"]["text-aling"];?>;
-	color: <?php echo $document["ultimoJogo"]["header"]["color"];?>
+.headerJogos{
+	background-color: <?php echo $document["jogos"]["header"]["background"];?>;
+	color: <?php echo $document["jogos"]["header"]["color"];?>;
 }
-#bodyUltimoJogo{
-	background-color: <?php echo $document["ultimoJogo"]["body"]["background"];?>;
-	color: <?php echo $document["ultimoJogo"]["body"]["color"];?>;
+#jogos .body{
+	background-color: <?php echo $document["jogos"]["body"]["background"];?>;
 }
-#headerProximoJogo{
-	background-color: <?php echo $document["proximoJogo"]["header"]["background"];?>;
-	text-align: <?php echo $document["proximoJogo"]["header"]["text-aling"];?>;
-	color: <?php echo $document["proximoJogo"]["header"]["color"];?>
+
+
+#clubeMan1::after{
+	content: "<?php echo $document["jogos"]["ultimoJogo"]["man"];?>";
 }
-#bodyProximoJogo{
-	background-color: <?php echo $document["proximoJogo"]["body"]["background"];?>;
-	color: <?php echo $document["proximoJogo"]["body"]["color"];?>;
+#placarClubeMan1::after{
+	content: "<?php echo $document["jogos"]["ultimoJogo"]["placarMan"];?>";
 }
-.dataJogo{
-	color: white;
+#clubeVis1::after{
+	content: "<?php echo $document["jogos"]["ultimoJogo"]["vis"];?>";
+}
+#placarClubeVis1::after{
+	content: "<?php echo $document["jogos"]["ultimoJogo"]["placarVis"];?>";
+}
+#data1::after{
+	content: "<?php echo $document["jogos"]["ultimoJogo"]["data"];?>";
+}
+
+
+#clubeMan2::after{
+	content: "<?php echo $document["jogos"]["proximoJogo"]["man"];?>";
+}
+#placarClubeMan2::after{
+	content: "<?php echo $document["jogos"]["proximoJogo"]["placarMan"];?>";
+}
+#clubeVis2::after{
+	content: "<?php echo $document["jogos"]["proximoJogo"]["vis"];?>";
+}
+#placarClubeVis2::after{
+	content: "<?php echo $document["jogos"]["proximoJogo"]["placarVis"];?>";
+}
+#data2::after{
+	content: "<?php echo $document["jogos"]["proximoJogo"]["data"];?>";
+}
+
+
+.confrontos .member-infos h4{
+	color: <?php echo $document["jogos"]["body"]["color"];?>;
 }
 
 .icone-news{
@@ -265,11 +290,16 @@
 #p12Nome::before{
 	content: "<?php echo $document["jogadores"]["player12"]["nome"];?>";
 }
-#p12Numero::before{
-	content: "<?php echo $document["jogadores"]["player12"]["numero"];?>";
-}
 #posicaoP12::before{
 	content: "<?php echo $document["jogadores"]["player12"]["posicao"];?>";
+}
+
+.page-header{
+	border-bottom: 1px solid <?php echo $document["separadores"]["color"];?>; 
+	color: <?php echo $document["separadores"]["color"];?>; 
+}
+.page-title{
+	text-align: <?php echo $document["separadores"]["align"];?>; 
 }
 
 <?php

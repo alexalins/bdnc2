@@ -23,7 +23,7 @@
   if($imagem == ""){
     
     $collection->update(array("_id"=>$logado),
-          array('$set'=>array("jogadores.textColor"=>$color, "jogadores.".$player.".nome"=>$nome, "jogadores.".$player.".numero"=>$camisa, "posicao"=>$posicaoJogador)));
+          array('$set'=>array("jogadores.textColor"=>$color, "jogadores.".$player.".nome"=>$nome, "jogadores.".$player.".numero"=>$camisa, "jogadores.".$player.".posicao"=>$posicao)));
   }
   else{
     $ext = pathinfo($imagem, PATHINFO_EXTENSION);

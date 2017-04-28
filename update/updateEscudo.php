@@ -54,6 +54,6 @@
           echo $document["clube"]["nome"];
           echo $document["clube"]["color"];
         }
-        header('location:../gerenciador.php');
+        header('location:../gerenciador.php#escudo');
   }
 ?>

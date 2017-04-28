@@ -72,13 +72,12 @@
                               "escudo" => "arenam1lg4au.png",
                               "clube" => array("nome"=>"myClub", "color"=>"#FFFFFF"),
                               "background" => "myClub.png",
+                              "separadores" => array("color"=>"#FFFFFF", "align"=>"center"),
                               "jogos"=>array(
-                                    "ultimoJogo" => array(
-                                                "header" => array("background"=>"green", "color"=>"white", "text-aling"=>"center"), 
-                                                "body" => array("background"=>"rgba(0, 0, 0, 0.7)", "color"=>"black", "man"=>"MAN", "placarMan"=>"", "vis"=>"VIS", "placarVis"=>"", "data"=>"")),
-                                    "proximoJogo" => array(
-                                                  "header" => array("background"=>"green", "color"=>"white", "text-aling"=>"center"), 
-                                                  "body" => array("background"=>"black", "color"=>"white", "man"=>"MAN", "vis"=>"VIS", "data"=>""))
+                                    "header" => array("background"=>"#238E23", "color"=>"#FFFFFF"),
+                                    "body" => array("background"=>"rgba(0, 0, 0, 0.7)", "color"=>"#FFFFFF"),
+                                    "ultimoJogo" => array("man"=>"MAN", "placarMan"=>"", "vis"=>"VIS", "placarVis"=>"", "data"=>""),
+                                    "proximoJogo" => array("man"=>"MAN", "placarMan"=>"", "vis"=>"VIS", "placarVis"=>"", "data"=>"")
                               ),
                               "news"=>array("background"=>"rgba(0, 0, 0, 0.7)", "color"=>"#FFFFFF", "titleColor"=>"#FFFFFF",
                                     "news1" => array(
@@ -99,7 +98,7 @@
                                          "player5"=>array("imagem"=>"player.jpg", "nome"=>"Player", "numero"=>"5", "posicao"=>"MEI"),
                                          "player6"=>array("imagem"=>"player.jpg", "nome"=>"Player", "numero"=>"6", "posicao"=>"MEI"),
                                          "player7"=>array("imagem"=>"player.jpg", "nome"=>"Player", "numero"=>"7", "posicao"=>"LAT"), 
-                                         "player8"=>array("imagem"=>"player.jpg", "nome"=>"Player", "numero"=>"8", "posicao"=>"LAt"),
+                                         "player8"=>array("imagem"=>"player.jpg", "nome"=>"Player", "numero"=>"8", "posicao"=>"LAT"),
                                          "player9"=>array("imagem"=>"player.jpg", "nome"=>"Player", "numero"=>"9", "posicao"=>"VOL"), 
                                          "player10"=>array("imagem"=>"player.jpg", "nome"=>"Player", "numero"=>"10", "posicao"=>"ATA"),
                                          "player11"=>array("imagem"=>"player.jpg", "nome"=>"Player", "numero"=>"11", "posicao"=>"ATA"),

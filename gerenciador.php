@@ -128,47 +128,47 @@
 
                   <div class="modal-header" style="padding:35px 50px;">
                       <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      <h1>Editar Ultimo Jogo</h1>
+                      <h1>Editar Jogo</h1>
                   </div>
 
                   <div class="modal-body" style="padding:40px 50px;">
-                      <form method="post"  action="update/updateUltimoJogo.php">
+                      <form method="post"  action="update/updateJogos.php">
                         <input type="hidden" id="actionModalJogos" name="action" value="">
                         <div class="form-group">
                           <p>CABEÇALHO</p>
                           <div>
                             <label for="header">Fundo</label>
-                            <input type="color"    name="backgroundHeader">
+                            <input type="color" id="backgroundHeader" name="backgroundHeader">
                           </div>
                           <div>
                             <label for="headerNome">Titulo</label>
-                            <input type="color"  name="headerColor">
+                            <input type="color" id="headerColor"  name="headerColor">
                           </div>
                         </div>
                         <div class="form-group">
                           <p>Clubes</p>
                           <div>
                             <label for="background">FUNDO</label>
-                            <input type="color" name="backgroundColor">
+                            <input type="color" id="backgroundColor" name="backgroundColor">
                           </div>
                           <div>
                             <label for="textColor">Texto</label>
-                            <input type="color" name="textColor">
+                            <input type="color" id="textColor" name="textColor">
                           </div>
 
                           <label for="man">Mandante</label>
-                          <input type="text" class="form-control" name="man" placeholder="Nome do time" required>
+                          <input type="text" class="form-control" id="man" name="man" placeholder="Nome do time" required>
                           <label for="placarMan">placar</label>
-                          <input type="Number" class="form-control" id="placarMan" name="placarMan" placeholder="Nome do time" required>
+                          <input type="Number" class="form-control" id="placarMan" name="placarMan" placeholder="">
                           
 
                           <label for="vis">Visitante</label>
-                          <input type="text" class="form-control" name="vis" placeholder="Nome do time" required>
+                          <input type="text" class="form-control" id="vis" name="vis" placeholder="Nome do time" required>
                           <label for="placarman">placar</label>
-                          <input type="Number" class="form-control" id="placarVis" name="placarVis" placeholder="Nome do time" required>
+                          <input type="Number" class="form-control" id="placarVis" name="placarVis" placeholder="placar">
 
                           <label for="dataHora">Data e hora</label>
-                          <input type="datetime-local" class="form-control" name="data" value="2014-11-16T15:25">
+                          <input type="datetime-local" class="form-control" id="data" name="data" value="2014-11-16T15:25">
 
                         </div>
                         <!--<div class="checkbox">
@@ -195,14 +195,14 @@
                   </div>
 
                   <div class="modal-body" style="padding:40px 50px;">
-                      <form method="post"  action="update/updateNew.php">
+                      <form method="post"  action="update/separadores.php">
                         <div class="form-group">
                           <label for="corNoticia">Cor do texto</label>
-                          <input type="color" class="form-control"  name="background">
+                          <input type="color" class="form-control" id="separadorColor" name="cor">
 
                           <label for="posicaoTitulo">Posição do titulo</label>
-                          <select class="form-control" name="titleAling" id="posicao" required>
-                              <option value="">Escolha a posição</option>
+                          <select class="form-control" name="titleAlign" id="posicao" required>
+                              <option value="">posição:</option>
                               <option value="center">Centro</option>
                               <option value="left">Esquerda</option>
                           </select>
@@ -251,43 +251,7 @@
             </div>
             
             
-            <!-- Modal Titulo Jogadores-->
-            <div class="modal fade" id="jogadorTitle" role="dialog">
-              <div class="modal-dialog">
-              
-                <!-- Modal content-->
-                <div class="modal-content">
-
-                  <div class="modal-header" style="padding:35px 50px;">
-                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      <img src="images/c1.png">
-                      <h4><span class="glyphicon"></span> Editar Titulo</h4>
-                  </div>
-
-                  <div class="modal-body" style="padding:40px 50px;">
-                      <form method="post"  action="update/updateJogadorTitulo.php">
-                        <div class="form-group">
-                          <label for="corNoticia">Cor do texto</label>
-                          <input type="color" class="form-control"  name="background">
-
-                          <label for="posicaoTitulo">Posição do titulo</label>
-                          <select class="form-control" name="titleAling" id="posicao" required>
-                              <option value="">Escolha a posição</option>
-                              <option value="center">Centro</option>
-                              <option value="left">Esquerda</option>
-                          </select>
-                        </div>
-                        <!--<div class="checkbox">
-                          <label><input type="checkbox" value="" checked>Remember me</label>
-                        </div>-->
-                          <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-floppy-saved"></span>SALVAR</button>
-                      </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
+            
               <!-- Modal foto jogador-->
             <div class="modal fade" id="modalFotoJogador" role="dialog">
               <div class="modal-dialog">
@@ -381,6 +345,34 @@
         })
         //======================================================================================
 
+        $(".separadores").click(function(){
+          $("#separadorColor").val("<?php echo $document["separadores"]["color"];?>")
+        })
+
+        $("#ultimoJogo").click(function(){
+          $("#man").val("<?php echo $document["jogos"]["ultimoJogo"]["man"];?>");
+          $("#placarMan").val("<?php echo $document["jogos"]["ultimoJogo"]["placarMan"];?>");
+          $("#vis").val("<?php echo $document["jogos"]["ultimoJogo"]["vis"];?>");
+          $("#placarVis").val("<?php echo $document["jogos"]["ultimoJogo"]["placarVis"];?>");
+          $("#data").val("<?php echo $document["jogos"]["ultimoJogo"]["data"];?>");
+          jogosDefault();
+        })
+        $("#proximoJogo").click(function(){
+          $("#man").val("<?php echo $document["jogos"]["proximoJogo"]["man"];?>");
+          $("#placarMan").val("<?php echo $document["jogos"]["proximoJogo"]["placarMan"];?>");
+          $("#vis").val("<?php echo $document["jogos"]["proximoJogo"]["vis"];?>");
+          $("#placarVis").val("<?php echo $document["jogos"]["proximoJogo"]["placarVis"];?>");
+          $("#data").val("<?php echo $document["jogos"]["proximoJogo"]["data"];?>");
+          jogosDefault();
+        })
+
+        function jogosDefault(){
+          $("#backgroundHeader").val("<?php echo $document["jogos"]["header"]["background"];?>");
+          $("#headerColor").val("<?php echo $document["jogos"]["header"]["color"];?>");
+          $("#backgroundColor").val("<?php echo $document["jogos"]["body"]["background"];?>");
+          $("#textColor").val("<?php echo $document["jogos"]["body"]["color"];?>");
+          
+        }
 
 
 
@@ -489,17 +481,6 @@
         }
         //==============================================================================================================================
 
-
-
-        //=============================================== redes sociais =================================================================
-        $(document).ready(function() {
-            $("#facebook").attr("href", "<?php echo $document["footer"]["contatos"]["facebook"]?>;");
-            $("#twitter").attr("href", "<?php echo $document["footer"]["contatos"]["twitter"]?>;");
-            $("#instagram").attr("href", "<?php echo $document["footer"]["contatos"]["instagram"]?>;");
-            $("#linkedin").attr("href", "<?php echo $document["footer"]["contatos"]["linkedin"]?>;");
-            $("#rss").attr("href", "<?php echo $document["footer"]["contatos"]["rss"]?>;");
-            $("#copyright").html("<?php echo $document["footer"]["direitos"]; ?>");
-        });
       </script>
 
     <?php

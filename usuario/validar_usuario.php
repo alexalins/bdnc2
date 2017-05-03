@@ -16,19 +16,35 @@
 
                         <?php
                             // session_start inicia a sessão
-                            session_start();
-
+                            //session_start();
                             include("conexao.php"); 
                                                   
                                         $email = $_POST['email'];
                                         $senha = $_POST['senha'];
 
+                                        echo $email;
+
                                             $result = mysqli_query($db, "SELECT * FROM usuarios where email='$email' and senha='$senha'");
 
                                             if(mysqli_affected_rows($db) == 1){ 
-                                                $_SESSION['email'] = $email;
-                                                $_SESSION['senha'] = $senha;
-                                                Header("location:../gerenciador.php");                                                              
+
+                                                //Conexão 
+                                                try{
+                                                    $redis = new Redis(); 
+                                                    $redis->connect('127.0.0.1', 6379);
+                                                }catch(Exception $e) {
+                                                        echo $e->getMessage();
+                                                }
+                                                                                            
+                                                //inserindo
+                                                try{
+                                                    $redis->set("email", $email);
+                                                    $redis->set("senha", $senha);
+                                                }catch(Exception $e) {
+                                                echo $e->getMessage();
+                                                }
+                                                
+                                                header("location:../gerenciador.php");                                                              
                                             }
 
                                             else{
@@ -37,8 +53,7 @@
                                                                 <a href="../login.php"><button type="button" class="btn btn-danger">ok</button>
                                                         </div>';
 
-                                                        unset ($_SESSION['email']);
-                                                        unset ($_SESSION['senha']);                             
+                                                                              
                                             }
                                         
                             mysqli_close($db);

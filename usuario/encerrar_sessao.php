@@ -1,15 +1,32 @@
 <html>
 <head>
 
-      <?php
-            session_start();
-            if((!isset ($_SESSION['email']) == true) and (!isset ($_SESSION['senha']) == true))
-            {
-              unset($_SESSION['email']);
-              unset($_SESSION['senha']);
-              header('location:../index.php');
-            }
-      ?>
+      <?php  
+        //sessão redis
+    
+        include("../validar_usuario.php");
+        global $email, $senha;
+
+         //Conexão 
+          try{
+            $redis = new Redis(); 
+            $redis->connect('127.0.0.1', 6379);
+          }catch(Exception $e) {
+            echo $e->getMessage();
+          }
+          
+          try {
+            if($redis->exists("email")){
+              if($redis->exists("senha")){
+                $logado = $email;
+              }
+            }else
+            header('location:index.php');
+              
+          } catch (Exception $e) {
+            echo $e->getMessage();
+          } 
+    ?>  
 
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta charset="UTF-8">
@@ -25,8 +42,33 @@
             <div class="row">
                     <div class="col-md-12">
 
-                        <?php    
-                           if(session_destroy()){
+                        <?php  
+                              //sessão redis
+                          
+                              include("../validar_usuario.php");
+                              global $email, $senha;
+
+                               //Conexão 
+                                try{
+                                  $redis = new Redis(); 
+                                  $redis->connect('127.0.0.1', 6379);
+                                }catch(Exception $e) {
+                                  echo $e->getMessage();
+                                }
+                                
+                                try {
+                                  if($redis->exists("email")){
+                                    if($redis->exists("senha")){
+                                      $redis->flushall();
+                                    }
+                                  }else
+                                  header('location:index.php');
+                                    
+                                } catch (Exception $e) {
+                                  echo $e->getMessage();
+                                } 
+
+                           if($redis->exists("email") == 0){
                               echo '<div class="alert alert-success">
                                             <strong>Success!</strong> sessão encerrada com sucesso.
                                             <a href="../index.php"><button type="button" class="btn btn-primary">ok</button>

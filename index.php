@@ -45,11 +45,10 @@
 
 			<!-- Features -->
 				<div id="features-wrapper">
-					<h2>Futebol</h2>
 					<div class="container">
 						<div class="row">
 							<div class="12u 12u(medium)">
-
+								<h2>Futebol</h2>
 								<!-- Box -->
 									<section class="box feature">
 										<iframe style="position: relative" width="100%" height="500px" src="template-default.php"></iframe>

@@ -1,18 +1,33 @@
 <!DOCTYPE html>
 <html class="no-js" lang="pt-br"> 
 <head>
-  <?php  
-          //esse bloco de código em php verifica se existe a sessão, pois o usuário pode simplesmente não fazer o login e digitar na barra de endereço do seu navegador o caminho para a página principal do site (sistema), burlando assim a obrigação de fazer um login, com isso se ele não estiver feito o login não será criado a session, então ao verificar que a session não existe a página redireciona o mesmo para a index.php.
-          session_start();
-          if((!isset ($_SESSION['email']) == true) and (!isset ($_SESSION['senha']) == true))
-          {
-            unset($_SESSION['email']);
-            unset($_SESSION['senha']);
-            header('location:index.php');
-          }
+    <?php  
+        //sessão redis
+    
+        include("../validar_usuario.php");
+        global $email, $senha;
 
-          $logado = $_SESSION['email'];
+         //Conexão 
+          try{
+            $redis = new Redis(); 
+            $redis->connect('127.0.0.1', 6379);
+          }catch(Exception $e) {
+            echo $e->getMessage();
+          }
+          
+          try {
+            if($redis->exists("email")){
+              if($redis->exists("senha")){
+                $logado = $email;
+              }
+            }else
+            header('location:index.php');
+              
+          } catch (Exception $e) {
+            echo $e->getMessage();
+          } 
     ?>
+    
     <title>ARENA M1L G4AU</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="O ARENA M1L G4AU É UM SITE ESPORTIVO QUE TEM COMO OBJETIVO DIVULGAR OS PRINCIPAIS CAMPEONATOS/TORNEIOS LOCAIS. NA PAGINA INICIAL É POSSIVEL VISUALIZAR TODOS OS CAMPEONATOS/TORNEIOS QUE SERÃO REALIZADOS, O MESMO SUPORTA TODOS OS FORMATOS DE CAMPEONATO. ATRAVÉZ DE NOSSA PAGINA VOCÊ FICA POR DENTRO DAS PRINCIPAIS COMPETIÇÕES QUE ACONTECEM NA CIDADA.">

@@ -18,7 +18,7 @@
 	<div class="row">
 		<div class="col-md-12" >
 			<div id="login">
-				<form role="form" action="redis.php" method="post">
+				<form role="form" action="usuario/validar_usuario.php" method="post">
 				<div class="login-form">
 					<div class="form-group">	 
 						<label for="exampleInputEmail1">

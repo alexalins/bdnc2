@@ -24,6 +24,7 @@
                         <?php    
                            try{
                               $redis->expire("email", 0);
+                              $redis->expire("senha", 0);
                               
                               echo '<div class="alert alert-success">
                                         <strong>Success!</strong> sessão encerrada com sucesso.

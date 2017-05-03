@@ -1,0 +1,13 @@
+.bg-image{
+	background-image: url("../images/myClub.png");
+}
+
+.form-conta {
+  padding: 40px 30px;
+  float: right;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  margin: 0 auto;
+  position: relative;
+}

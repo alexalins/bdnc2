@@ -1,10 +1,16 @@
 <?php
-	session_start();
-	if((isset ($_SESSION['email']) == true) and (isset ($_SESSION['senha']) == true))
-	{
-		header('location:gerenciador.php');
-	}
+	include("conexaoRedis.php");
+	try{
+		if($redis->exists("email")){
+			if($redis->exists("senha")){
+				header('location:gerenciador.php');		
+			}
+		}
+	}catch (Exception $e) {
+	  echo $e->getMessage();
+	}	
 ?>
+
 <!DOCTYPE HTML>
 <html>
 	<head>

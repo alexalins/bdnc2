@@ -4,6 +4,7 @@
     <?php  
       include("conexaoRedis.php");
       include("verificaSessao.php");
+      $logado = $redis->get("email");
     ?>
     <title>ARENA M1L G4AU</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

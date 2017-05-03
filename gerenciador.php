@@ -5,6 +5,7 @@
     <?php  
       include("conexaoRedis.php");
       include("verificaSessao.php");
+      $logado = $redis->get("email");
     ?>  
     
     <meta charset="UTF-8">

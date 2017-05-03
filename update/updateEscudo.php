@@ -2,7 +2,8 @@
     
   include("../conexaoRedis.php");
   include("../verificaSessao.php");
-  
+  $logado = $redis->get("email");
+
   include("../conexaoMongo.php");
   $nomeClube = $_POST['nomeClube'];
   $nomeClubeColor =$_POST["nomeClubeColor"];
@@ -25,7 +26,7 @@
       $caminhoArquivoCSS = "usuarios/".$logado."/".$escudo;
 
       //destino de copia
-    	$destino = '../images/usuarios/'.$_SESSION['email'].'/'.$escudo;
+    	$destino = '../images/usuarios/'.$logado.'/'.$escudo;
     	 
     	$arquivo_tmp = $_FILES['escudo']['tmp_name'];
     	 
@@ -50,4 +51,6 @@
         }
         header('location:../gerenciador.php#escudo');
   }
+
+  
 ?>

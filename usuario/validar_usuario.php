@@ -15,9 +15,7 @@
                     <div class="col-md-12">
 
                         <?php
-                            // session_start inicia a sessão
-                            session_start();
-
+                           
                             include("conexao.php"); 
                                                   
                                         $email = $_POST['email'];
@@ -25,22 +23,21 @@
 
                                             $result = mysqli_query($db, "SELECT * FROM usuarios where email='$email' and senha='$senha'");
 
-                                            if(mysqli_affected_rows($db) == 1){ 
-                                                $_SESSION['email'] = $email;
-                                                $_SESSION['senha'] = $senha;
-                                                Header("location:../gerenciador.php");                                                              
-                                            }
-
-                                            else{
-                                                 echo '<div class="alert alert-danger">
+                                            if(mysqli_affected_rows($db) == 1){
+                                                include("../conexaoRedis.php");
+                                                try{
+                                                   $redis->set('email', $email);
+                                                   $redis->set('senha', $senha); 
+                                                   Header("location:../gerenciador.php");                                                              
+                                                }
+                                                catch(Exception $e) {
+                                                        '<div class="alert alert-danger">
                                                                 <strong>Error!</strong> Não foi possivel efetuar o login.
                                                                 <a href="../login.php"><button type="button" class="btn btn-danger">ok</button>
-                                                        </div>';
-
-                                                        unset ($_SESSION['email']);
-                                                        unset ($_SESSION['senha']);                             
+                                                        </div>';   
+                                                }   
                                             }
-                                        
+                                                                                    
                             mysqli_close($db);
                         ?>  
 

@@ -2,6 +2,7 @@
     
   include("../conexaoRedis.php");
   include("../verificaSessao.php");
+  $logado = $redis->get("email");
 
   include("../conexaoMongo.php");
 
@@ -13,7 +14,7 @@
   //diretorio relativo para chegar no arquivo
   $caminhoArquivoCSS = "usuarios/".$logado."/".$background;
 
-	$destino = '../images/usuarios/'.$_SESSION['email'].'/'.$background;
+	$destino = '../images/usuarios/'.$logado.'/'.$background;
 	 
 	$arquivo_tmp = $_FILES['imagem']['tmp_name'];
 	 

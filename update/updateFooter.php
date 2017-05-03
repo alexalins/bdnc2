@@ -2,6 +2,7 @@
     
   include("../conexaoRedis.php");
   include("../verificaSessao.php");
+  $logado = $redis->get("email");
   
   include("../conexaoMongo.php");
 

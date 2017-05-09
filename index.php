@@ -76,7 +76,7 @@
 										<section class="last">
 											<h2>Informações?</h2>
 											<p>Mostramos aqui todas as informações sobres os templates e como usar cada um deles, de forma simple. Assim qualquer pessoa conseguirá até com um pouco conhecimento</p>
-											<a href="login.html" class="button icon fa-arrow-circle-right">Continue!</a>
+											<a href="login.php" class="button icon fa-arrow-circle-right">Continue!</a>
 										</section>
 									</div>
 

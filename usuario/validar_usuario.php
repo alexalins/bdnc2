@@ -28,7 +28,7 @@
                                                 try{
                                                    $redis->set('email', $email);
                                                    $redis->set('senha', $senha); 
-                                                   Header("location:../gerenciador.php");                                                              
+                                                   Header("location:../templates.html");                                                              
                                                 }
                                                 catch(Exception $e) {
                                                         '<div class="alert alert-danger">

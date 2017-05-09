@@ -85,17 +85,11 @@
 				</div>
 
 			<!-- Footer -->
-				<div id="footer-wrapper">
-					<footer id="footer" class="container">
-						<div class="row">
-							<div class="12u">
-								<div id="copyright">
-										<ul id="copyright">
-											<li>&copy; Alexa e Rudan</li><li>Design: <a href="https://www.facebook.com/alexa.goncalves.56?qsefr=1">Alexa Lins</a></li>
-										</ul>
-								</div>
-							</div>
-						</div>
+				<div>
+					<footer >
+						<ul id="copyright">
+							<li>&copy; Alexa e Rudan</li><li>Design: <a href="https://www.facebook.com/alexa.goncalves.56?qsefr=1">Alexa Lins</a></li>
+						</ul>
 					</footer>
 				</div>
 

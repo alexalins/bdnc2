@@ -37,8 +37,8 @@
 					<div id="banner" class="box container">
 						<div class="row">
 							<div class="7u 12u(medium)">
-								<h2>Experimente nossos serviços</h2>
-								<p>Saiba mais informações e veja nossos templates</p>
+								<h2>Experimente nosso template de futebol</h2>
+								<p>Veja nosso template e faça seu site sobre seu time do coração</p>
 							</div>
 							<div class="5u 12u(medium)">
 								<ul>
@@ -54,7 +54,7 @@
 					<div class="container">
 						<div class="row">
 							<div class="12u 12u(medium)">
-								<h2>Futebol</h2>
+								<h2>Template</h2>
 								<!-- Box -->
 									<section class="box feature">
 										<iframe style="position: relative" width="100%" height="500px" src="template-default.php"></iframe>
@@ -75,8 +75,7 @@
 									<div id="content">
 										<section class="last">
 											<h2>Informações?</h2>
-											<p>Mostramos aqui todas as informações sobres os templates e como usar cada um deles, de forma simple. Assim qualquer pessoa conseguirá até com um pouco conhecimento</p>
-											<a href="login.php" class="button icon fa-arrow-circle-right">Continue!</a>
+											<p>Crie seu site de futebol rápidamente como nosso template. Você podera fazer do jeito como quiser apenas com alguns cliques. Um jeito fácil e simples de divulgar seu time, com as principais noticias sobre ele  e sua escalação</p>
 										</section>
 									</div>
 
